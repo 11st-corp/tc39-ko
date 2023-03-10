@@ -27,6 +27,7 @@ Proposals 번역(Proposal-ko)은 tc39의 [Finished Proposals](https://github.com
 
 ## 👣 Guide
 
+- [용어집](./glossary.md)
 
 <br />
 
