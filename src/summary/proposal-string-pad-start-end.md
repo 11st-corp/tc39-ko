@@ -1,17 +1,53 @@
 # 목차
 
+1. **[사전 지식](#사전-지식)**
 1. **[다른 언어 사례](#다른-언어-사례)**
 
 ---
 
 Specification: ES2017
 
+## 사전 지식
+
+### code point
+
+'code point'는 유니코드의 특정 문자를 나타내는 숫자 값이다.
+
+> All Unicode code point values from U+0000 to U+10FFFF, including surrogate code points, may occur in ECMAScript source text where permitted by the ECMAScript grammars. https://tc39.es/ecma262/multipage/ecmascript-language-source-code.html
+
+### Surrogate pairs
+
+'Surrogate pairs'는 저장하는 데 16비트 이상이 필요한 JavaScript의 유니코드 코드 포인트를 나타내는 방법이다. JavaScript는 UTF-16 인코딩을 사용한다. 즉, 각 문자는 하나 또는 두 개의 16비트 코드 단위로 표현된다.
+
+대부분의 이모지와 일부 희귀 문자를 포함하는 BMP(Basic Multilingual Plane) 외부의 문자를 나타내려면 두 개의 16비트 코드 단위가 필요하다. 이러한 코드 단위 쌍을 'Surrogate pairs'라고 한다.
+
+UTF-16에서 'Surrogate pairs'는 'high surrogate'와 'low surrogate'로 구성된다. 'high surrogate'는 `0xD800–0xDBFF` 범위의 코드 단위이고 'low surrogate'는 `0xDC00–0xDFFF` 범위의 코드 단위이다.
+
+### Surrogate pairs length
+
+'high surrogate'와 'low surrogate'로 구성된 Surrogate pairs는 아래와 같은 방법으로 길이를 알 수 있다.
+
+```js
+const str = 'The 💩💩💩.';
+console.log(str.length); // 11
+console.log(Array.from(str).length); // 8
+```
+
+하지만 결합된 이모지는 더 길 수 있다. 이 경우 길이를 측정하기는 생각보다 복잡하다.
+
+```js
+"🏳️‍🌈".length == 6 // true
+"🌷".length == 2 // true
+Array.from("🌷") // ['🌷']
+Array.from("🏳️‍🌈") // (4) ['🏳', '️', '‍', '🌈']
+```
+
+관심이 있다면, 세부 내용은 [grapheme-splitter](https://github.com/orling/grapheme-splitter/tree/master)를 참고 해보자.
+
 ## 다른 언어 사례
 
 - [💩](https://charbase.com/1f4a9-unicode-pile-of-poo)
 - [�](https://charbase.com/d83d-unicode-invalid-character)
-
-> **참고:** "코드 포인트"는 유니코드의 특정 문자를 나타내는 숫자 값이다.
 
 ### 길이와 채워질 문자열을 모두 지정할 수 있는 기능이 있는 것들
 
@@ -79,3 +115,20 @@ Ruby 1.9를 제외한 사용자가 채워질 문자열을 지정하는 기능이
 "abc".padEnd(4, '💩') // 'abc\uD83D'
 "abc".padEnd(5, '💩') // 'abc💩'
 ```
+
+## MAX STRING
+
+https://github.com/tc39/proposal-string-pad-start-end/issues/11#issuecomment-148596251
+
+## [`pad` 하나의 메서드가 아닌 `padStart`, `padEnd` 두 개의 메서로 나뉜 이유?](https://github.com/tc39/proposal-string-pad-start-end/issues/19#issuecomment-181964632)
+
+> In general, it's preferable imo and less error-prone to have two methods rather than one that's overloaded based on the sign of the argument.
+
+일반적으로 인수의 부호에 따라 오버로드된 하나의 메서드보다 두 개의 메서드를 갖는 것이 더 바람직하고 오류가 덜 발생합니다.
+
+## 구현
+
+ - Firefox / SpiderMonkey [patch](https://bugzilla.mozilla.org/show_bug.cgi?id=1260509)
+ - Chrome / v8 [patch](https://chromium.googlesource.com/v8/v8/+/1a272ba23ec490f73349201c014537c851f3c964)
+ - Safari + Webkit / JavaScriptCore
+ - Edge / Chakra [PR](https://github.com/chakra-core/ChakraCore/pull/174)
