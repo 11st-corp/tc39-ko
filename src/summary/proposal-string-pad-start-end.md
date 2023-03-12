@@ -1,7 +1,10 @@
 # 목차
 
 1. **[사전 지식](#사전-지식)**
-1. **[다른 언어 사례](#다른-언어-사례)**
+2. **[다른 언어 사례](#다른-언어-사례)**
+3. **[`pad` 하나의 메서드가 아닌 `padStart`, `padEnd` 두 개의 메서로 나뉜 이유?](#pad-하나의-메서드가-아닌-padstart-padend-두-개의-메서로-나뉜-이유)**
+4. **[구현](#구현)**
+5. **[Edge Case](#Edge-Case)**
 
 ---
 
@@ -116,10 +119,6 @@ Ruby 1.9를 제외한 사용자가 채워질 문자열을 지정하는 기능이
 "abc".padEnd(5, '💩') // 'abc💩'
 ```
 
-## MAX STRING
-
-https://github.com/tc39/proposal-string-pad-start-end/issues/11#issuecomment-148596251
-
 ## [`pad` 하나의 메서드가 아닌 `padStart`, `padEnd` 두 개의 메서로 나뉜 이유?](https://github.com/tc39/proposal-string-pad-start-end/issues/19#issuecomment-181964632)
 
 > In general, it's preferable imo and less error-prone to have two methods rather than one that's overloaded based on the sign of the argument.
@@ -132,3 +131,28 @@ https://github.com/tc39/proposal-string-pad-start-end/issues/11#issuecomment-148
  - Chrome / v8 [patch](https://chromium.googlesource.com/v8/v8/+/1a272ba23ec490f73349201c014537c851f3c964)
  - Safari + Webkit / JavaScriptCore
  - Edge / Chakra [PR](https://github.com/chakra-core/ChakraCore/pull/174)
+
+## Edge Case
+
+(1) 명시적인 빈 문자열이 제공될 때(또는 ToString이 빈 문자열인 경우) padStart/padEnd가 단순히 문자열을 있는 그대로 반환한다. ([참고](https://github.com/tc39/proposal-string-pad-start-end/issues/21#issuecomment-203075849))
+
+```js
+'abc'.padStart('', 5) // 'abc'
+```
+
+(2) 기타
+
+```js
+"abc".padEnd(4, "\u{1F382}") // 'abc�'
+"abc".padEnd(5, "\u{1F382}") // 'abc🎂'
+"abc".padEnd(5, "🎂") // 'abc🎂'
+```
+
+```js
+"abc".padEnd(4, "🏳️‍🌈") // 'abc�'
+"abc".padEnd(5, "🏳️‍🌈") // 'abc🏳'
+"abc".padEnd(6, "🏳️‍🌈") // 'abc🏳️'
+"abc".padEnd(7, "🏳️‍🌈") // 'abc🏳️‍'
+"abc".padEnd(8, "🏳️‍🌈") // 'abc🏳️‍�'
+"abc".padEnd(9, "🏳️‍🌈") // 'abc🏳️‍🌈'
+```
