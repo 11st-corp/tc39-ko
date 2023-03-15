@@ -8,10 +8,14 @@
 
 | 용어 | 번역 | 참고 링크 |
 | --- | --- | --- |
+| FAQs | 자주 묻는 질문들 | |
+| Illustrative Examples | 설명을 위한 예시 | |
 | Motivation | 동기 | |
 | Naming | 이름 지정 | |
+| Proposed Solution | 제안된 해결책 | |
 | Rationale | 이론적 근거 | |
 | Spec | 명세서 | |
+| Status | 상태 | |
 
 ## 공통
 
