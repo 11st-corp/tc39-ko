@@ -1,7 +1,7 @@
 # Object.values / Object.entries
 
 `Object.values`/`Object.entries` 에 대한 ECMAScript 제안, 사양 및 참조 구현
-
+  
 [@ljharb](https://github.com/ljharb) 가 초안을 작성한 사양.
 
 이 제안은 현재 [프로세스](https://tc39.github.io/process-document/) 의 [stage 4](https://github.com/tc39/ecma262) 에 있으며 ES 2017에 포함될 예정입니다.
@@ -35,3 +35,13 @@
 ## Iterators 또는 배열?
 
 `Object.keys`와의 일관성은 이 제안에서 가장 중요합니다. 그러나 iterator에 대한 후속 제안은 `Reflect.ownValues` 및 `Reflect.ownEntries`일 가능성이 높으며, 이는 문자열 값 및 Symbol 값 속성의 배열을 모두 제공하는 `Reflect.ownKeys`로 세 가지 요소(key, values, entries)를 완성합니다. 그러나 이 제안은 `Object.values`/`Object.entries`에 초점을 맞추고 있으며 `Object` 또는 `Reflect` 형식의 존재가 다른 형식의 존재에 간섭해서는 안 됩니다. 또한 `keys`/`values`/`entries`에서 iterator를 반환하는 현재 선례는 현재 프로토타입의 메서드에만 적용되며 "`Objects`는 특별하다"는 말이 많은 사람들에게 받아들여지는 것 같습니다. 또한 배열 자체는 이미 반복 가능합니다.
+
+## 폴리필
+
+[폴리필 링크](https://github.com/tc39/proposal-object-values-entries/blob/main/polyfill.js)
+
+아래 네 개의 문법이 선행되어야 합니다.
+- `Array.prototype.reduce`
+- `Object.prototype.propertyIsEnumerable`
+- `Array.prototype.concat`
+- `Reflect.ownKeys`
