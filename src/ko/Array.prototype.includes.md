@@ -27,7 +27,7 @@ if(arr.indexOf(el) !== -1){
 - 그들은 무슨 의미인지 파악하기 어렵습니다. 배열에 요소가 포함되어 있는지 묻는 대신 배열에서 해당 요소가 처음 나타나는 인덱스가 무엇인지 묻고 비교하거나 bit-twiddle <sup>[2]('note2')</sup> 해서 실제 질문에 답하는 방법입니다.
 - `indexOf`는 엄격 동등 비교를 사용하므로 `[NaN].indexOf(NaN) === -1`이기 때문에 `NaN`에 대해 실패합니다.
 
-> <a name='note2'>2.</a> [bit twiddle](https://en.wikipedia.org/wiki/Bit_twiddler)
+> <a name='note2'>2.</a> [비트 조작](https://en.wikipedia.org/wiki/Bit_manipulation) Bit twiddling, bit fiddling 및 bit bashing 은 종종 비트 조작과 같은 의미로 사용되지만 때때로 영리하거나 명확하지 않은 방법이나 비트 조작 사용 또는 지루하거나 어려운 저수준 장치 제어 데이터 조작 작업을 독점적으로 지칭합니다.
 
 ## 제안된 해결책
 
