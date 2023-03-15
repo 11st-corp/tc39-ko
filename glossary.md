@@ -8,10 +8,10 @@
 
 | 용어 | 번역 | 참고 링크 |
 | --- | --- | --- |
+| Motivation | 동기 | |
+| Naming | 이름 지정 | |
 | Rationale | 이론적 근거 | |
 | Spec | 명세서 | |
-| Motivation |  | |
-| Naming | 이름 지정 | |
 
 ## 공통
 
