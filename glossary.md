@@ -8,14 +8,20 @@
 
 | 용어 | 번역 | 참고 링크 |
 | --- | --- | --- |
+| Authors     | 작성자        |           |
 | FAQs | 자주 묻는 질문들 | |
 | Illustrative Examples | 설명을 위한 예시 | |
+| Informative | 정보를 주는   |           |
 | Motivation | 동기 | |
 | Naming | 이름 지정 | |
+| Prior Art   | 선행 기술     |           |
 | Proposed Solution | 제안된 해결책 | |
 | Rationale | 이론적 근거 | |
+| Render Spec | 명세서 렌더링 |           |
+| Reviewers   | 검토자        |           |
 | Spec | 명세서 | |
 | Status | 상태 | |
+| Usage       | 사용법        |           |
 
 ## 공통
 
