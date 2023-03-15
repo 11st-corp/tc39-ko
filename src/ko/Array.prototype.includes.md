@@ -27,7 +27,7 @@ if(arr.indexOf(el) !== -1){
 - 그들은 무슨 의미인지 파악하기 어렵습니다. 배열에 요소가 포함되어 있는지 묻는 대신 배열에서 해당 요소가 처음 나타나는 인덱스가 무엇인지 묻고 비교하거나 bit-twiddle <sup>[2]('note2')</sup> 해서 실제 질문에 답하는 방법입니다.
 - `indexOf`는 엄격 동등 비교를 사용하므로 `[NaN].indexOf(NaN) === -1`이기 때문에 `NaN`에 대해 실패합니다.
 
-> <a name='note2'>2.</a> bit twiddle이란~~~
+> <a name='note2'>2.</a> [bit twiddle](https://en.wikipedia.org/wiki/Bit_twiddler)
 
 ## 제안된 해결책
 
@@ -70,8 +70,8 @@ if(arr.includes(el)){
 
 현재 ES6 draft에는 4개의 동등 알고리즘이 존재합니다.
 
-- Abstract Equality Comparison (`==`)
-- Strict Equality Comparison (`===`) : `Array.prototype.indexOf`, `Array.prototype.lastIndexOf` 그리고 `case` 매칭에서 사용.
+- 추상 동등 비교 (`==`)
+- 엄격 동등 비교 (`===`) : `Array.prototype.indexOf`, `Array.prototype.lastIndexOf` 그리고 `case` 매칭에서 사용.
 - SameValueZero : `TypedArray` 와 `ArrayBuffer` 생성자, `Map`과 `Set` 연산에서 사용.
 - SameValue : 다른 모든 곳에서 사용.
 
