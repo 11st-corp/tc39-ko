@@ -1,8 +1,8 @@
 # Array.prototype.includes Proposal
 
-[https://github.com/tc39/proposal-Array.prototype.includes](https://github.com/tc39/proposal-Array.prototype.includes)
+[명세서](https://github.com/tc39/proposal-Array.prototype.includes)
 
-## Status
+## 상태
 
 본 제안서는 공식적으로 [TC39 프로세스](https://tc39.es/process-document/)에서 4단계에 있으며, 명세서에 통합되는 과정에 있습니다.
 
@@ -29,7 +29,7 @@ if(arr.indexOf(el) !== -1){
 
 > <a name='note2'>2.</a> bit twiddle이란~~~
 
-## 제안된 솔루션
+## 제안된 해결책
 
 위의 패턴을 다음과 같이 작성할 수 있도록, `Array.prototype.includes` 메서드를 추가할 것을 제안합니다.
 
@@ -85,9 +85,9 @@ if(arr.includes(el)){
 
 ## Typed Arrays
 
-모든 변경되지 않는 배열 메서드들처럼, 이 메서드를 `TypedArray.prototype`에도 설치할 것입니다.
+모든 변경되지 않는 배열 메서드와 마찬가지로, 이 메서드를 `%TypedArray%.prototype`에도 존재할 것입니다.
 
-## 실제 예시
+## 설명을 위한 예시
 
 ```js
 assert([1, 2, 3].includes(2) === true);
