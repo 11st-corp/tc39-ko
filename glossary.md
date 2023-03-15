@@ -26,6 +26,6 @@
 | 용어 | 번역 | 참고 링크 |
 | --- | --- | --- |
 | Abstract Equality Comparison | 추상 동등 비교 | |
-| Strict Equality Comparison | 엄격 동등 비교 | |
 | element | 요소 | |
 | process | 과정 | |
+| Strict Equality Comparison | 엄격 동등 비교 | |
