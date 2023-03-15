@@ -10,6 +10,7 @@
 | --- | --- | --- |
 | Rationale | 이론적 근거 | |
 | Spec | 명세서 | |
+| Motivation |  | |
 | Naming | 이름 지정 | |
 
 ## 공통
