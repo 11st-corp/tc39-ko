@@ -16,14 +16,14 @@ String.prototype.padStart/padEnd에 대한 ECMAScript 제안, 사양, 테스트 
 현재 대부분의 문자열 패딩 구현이 비효율적일 가능성이 높습니다. 이를 플랫폼으로 가져오면 더 이상 이러한 공통 기능을 구현할 필요가 없으므로 웹 성능과 개발자 생산성이 향상됩니다.
 
 ## 명세서
-명세서를 [마크다운 형식](spec.md)으로 보거나 [HTML](http://tc39.github.io/proposal-string-pad-start-end/)로 렌더링할 수 있습니다.
+명세서를 [마크다운 형식](https://github.com/tc39/proposal-string-pad-start-end/blob/main/spec.md)으로 보거나 [HTML](http://tc39.github.io/proposal-string-pad-start-end/)로 렌더링할 수 있습니다.
 
 ## 이름 지정
 ~~`startsWith`/`endsWith`가 있음에도 불구하고 [trimStart/trimRight](https://github.com/sebmarkbage/ecmascript-string-left-right-trim) 및 `reduce`/`reduceRight`와의 일관성을 위해 , `padLeft` 및 `padRight`로 정했습니다.~~
-2015년 11월 TC39 회의에 따른 개정: 이름은 `padStart`/`padEnd`이고 `trimLeft`/`trimRight`는 `trimStart`/`trimEnd`로 변경되며, `trimLeft`/`trimRight` 별칭은 웹 호환성을 위한 부록 B에 추가됩니다.
+2015년 11월 TC39 회의에 따른 개정: 이름은 `padStart`/`padEnd`이고 `trimLeft`/`trimRight`는 `trimStart`/`trimEnd`로 변경되며, `trimLeft`/`trimRight` 별칭은 웹 호환성을 위해 부록 B에 추가됩니다.
 
 ## "최소 길이" vs "최대 길이"의 의미론
 이 제안을 명세서 언어로 개정하는 동안, 우리는 첫 번째 매개 변수가 패딩된 문자열의 최소 길이 또는 최대 길이를 결정해야 하는지에 대해 자세히 논의 했습니다. 특히, "최소 길이" 의미론에서는 `'foo'.padEnd(4, '12')`가 `foo12`를 출력하고, "최대 길이" 의미론은 `foo1`을 출력한다고 말합니다. `padStart`/`padEnd`의 주요 사용 사례 중 하나는 열에 있는 단일 공백 문자 형식을 지정하는 것이고, `String#repeat`을 통해 "최소 길이" 의미론을 달성할 수 있기 때문에, 우리는 "최대 길이"가 훨씬 더 유용한 접근법이라고 결정 했습니다.
 
 ## 채우기 문자열과 관련된 왼쪽 패딩: 다른 언어와의 일관성
-[#6](https://github.com/tc39/proposal-string-pad-start-end/issues/6)에 따라, "left" 및 "right" 기능을 모두 제공하는 다중 문자 채우기 문자열을 지원하는 유일한 언어는 Ruby와 PHP입니다. 두 언어의 "왼쪽 패드"는 마지막이 아닌 채우기 문자열의 첫 부분을 차지합니다. 이것이 중요한 이유에 대한 분명한 예는 `"abc".padStart(10, "0123456789")`가 채우기 문자열의 마지막 부분을 취하면 `"3456789abc"`가 되고 첫 부분을 취하면 `"0123456abc"`가 되는 것입니다. 즉, `string.padStart(mask.length, mask)`는 예상대로 작동해야 합니다.
+[#6](https://github.com/tc39/proposal-string-pad-start-end/issues/6)에 따라, "left" 및 "right" 기능을 모두 제공하는 다중 문자 채우기 문자열을 지원하는 유일한 언어는 Ruby와 PHP입니다. 두 언어의 "왼쪽 패드"는 마지막이 아닌 채우기 문자열의 _첫_ 부분을 차지합니다. 이것이 중요한 이유에 대한 분명한 예는 `"abc".padStart(10, "0123456789")`가 채우기 문자열의 마지막 부분을 취하면 `"3456789abc"`가 되고 첫 부분을 취하면 `"0123456abc"`가 되는 것입니다. 즉, `string.padStart(mask.length, mask)`는 예상대로 작동해야 합니다.
