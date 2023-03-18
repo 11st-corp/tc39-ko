@@ -44,7 +44,28 @@ Object.create(proto[, propertiesObject])
 #### `proto`
 
 - 생성되는 객체가 가질 프로토타입 객체
-- `new` 연산자를 사용하여 생성하면, 기본적으로는 생성자 함수의 prototype 속성의 Object를 바인딩한다.
+- `new` 연산자를 사용하여 생성하면, 기본적으로는 생성자 함수의 `prototype` 속성의 Object를 바인딩한다.
+
+Prototype Object는  `__proto__` 속성을 가지는데 아래는 해당 속성의 폴리필이다.
+
+```javascript
+Object.defineProperty( Object.prototype, "__proto__", {
+	get: function() {
+		return Object.getPrototypeOf( this );
+	},
+	set: function(o) {
+		// setPrototypeOf(..) as of ES6
+		Object.setPrototypeOf( this, o );
+		return o;
+	}
+} );
+```
+
+- Object.prototype 객체에 `__proto__` 속성을 선언한다.
+- `defineProperty`는 세번째 인자로 해당 속성의 descriptor를 받는다.
+- 실제로 해당 속성은 `Object.getPrototypeOf()`, `Object.setPrototypeOf`를 사용하여 해당 객체(`this`)의 prototype 객체를 반환한다.
+- 즉, 기존에 존재하는 prototype 메서드를 쉽게 사용하기 위해서 속성으로 선언한 것으로 볼 수 있다.
+
 
 #### `propertiesObject`
 
