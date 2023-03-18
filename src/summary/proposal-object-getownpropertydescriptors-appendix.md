@@ -228,20 +228,7 @@ Object.assign(target, ...sources)
 `target`에 `sources`의 열거가능(`enumerable`)하고, 객체가 가진 속성(`own property`)을 할당한다. 이 때, 이 복사는 shallow copy이다.  
 
 
-
-
-
-
-
-
-
-## 얕은 복사(shallow copy)과 깊은 복사(deep copy)
-
-
-
-
-
-[defineProperty MDN 공식 페이지](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+[Object.assign MDN 공식 페이지](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 
 
 
