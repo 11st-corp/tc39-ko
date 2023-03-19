@@ -51,5 +51,6 @@ CLI의 경우 디스크에서 읽을 단일 파일 이름 인수를 지정하거
 https://tc39.github.io/proposal-trailing-function-commas/ 를 보세요.
 
 ---
-> <a name='note1'>1.</a> Esprima는 ECMAScript로 작성된 고성능 표준 호환 ECMAScript 파서입니다.
+> <a name='note1'>1.</a> [Esprima](https://esprima.org)는 ECMAScript로 작성된 고성능 표준 호환 ECMAScript 파서입니다.
+
 > <a name='note2'>2.</a> pipe는 UNIX system [IPC](https://en.wikipedia.org/wiki/Inter-process_communication)의 가장 오래된 형태로써, 모든 UNIX 시스템에 제공됩니다. 한 process의 output을 다른 process의 Input으로 넘겨주는 통신방법.
