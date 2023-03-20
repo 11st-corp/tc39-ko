@@ -225,7 +225,27 @@ Object.assign(target, ...sources)
 ```
 
 
-`target`에 `sources`의 열거가능(`enumerable`)하고, 객체가 가진 속성(`own property`)을 할당한다. 이 때, 이 복사는 shallow copy이다.  
+`target`에 `sources`의 열거가능(`enumerable`)하고, 객체가 가진 속성(`own property`)을 할당한다. 이 때, 이 복사는 shallow copy이다. 
+이 때, 중요한 것은 `sources`의 속성 중, `enumerable`한 속성만을 복사한다는 것이다. 
+
+- 속성을 복사할 때, `[[Get]]`을 호출하여 속성의 값을 평가하여 `[[Set]]`을 호출하여 `target`에 속성을 할당한다.  
+- prototype object에 속성을 할당하는 경우 주로 `Object.defineProperty()`를 사용한다. 이 때 속성을 할당하는 로직이 `[[Set]]`, `[[Get]]`이 아닌 `[[DefineOwnProperty]]`이기 때문에 prototype object에 속성을 할당힐 때는 사용하지 않는다.
+- 이 때, 로직이 다른 것도 있지만 `getter`가 선언되는 방식이 아니라 `getter`를 수행하여 나오는 값 자체를 할당하기 때문이다.
+
+```javascript
+const obj = {
+  foo: 1,
+  get bar() {
+    return 2;
+  },
+};
+
+let copy = Object.assign({}, obj);
+console.log(copy);
+// { foo: 1, bar: 2 }
+```
+
+기본적으로 `Object.assign`은 얕은 복사이다. 즉, 값만을 복사하여 할당하기 때문에 복사되는 속성이 참조형 타입일 경우 `sources`의 변경이 `target`에 영향을 줄 수 있다.
 
 
 [Object.assign MDN 공식 페이지](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
