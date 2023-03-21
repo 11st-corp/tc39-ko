@@ -106,6 +106,6 @@ assert(["a", "b", "c"].includes("a", 1) === false);
 
 > tilt 연산자(`~`) 는 2의 보수(`-(n+1)`)와 같음
 
-### 2
+#### 2
 
 > [비트 조작](https://en.wikipedia.org/wiki/Bit_manipulation) Bit twiddling, bit fiddling 및 bit bashing 은 종종 비트 조작과 같은 의미로 사용되지만 때때로 영리하거나 명확하지 않은 방법이나 비트 조작 사용 또는 지루하거나 어려운 저수준 장치 제어 데이터 조작 작업을 독점적으로 지칭합니다.
