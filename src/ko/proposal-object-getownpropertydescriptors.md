@@ -25,7 +25,7 @@ ECMAScript에는 두 객체 간의 복사를 구현한 단일 메서드가 존�
 
 마지막으로, 무엇보다도 두 객체간의 얕은 복사는 `Object.assign`와 거의 차이가 존재하지 않는다.
 
-## FAQs
+## 자주 묻는 질문들
 
 ### `Reflect.getOwnPropertyDescriptors`이 꼭 있어야하나?
 
