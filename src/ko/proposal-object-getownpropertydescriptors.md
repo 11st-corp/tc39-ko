@@ -69,7 +69,7 @@ if (!Object.hasOwnProperty('getOwnPropertyDescriptors')) {
 
 ## 설명하기 위한 예제
 
-위의 폴리필은 ES5 또는 부분적인 ES2015를 지원하는 엔진에서 동작하는 보일러플레이트를 개선한 것이다.
+위의 폴리필은 ES5 또는 부분적인 ES2015를 지원하는 엔진에서 동작하는 보일러플레이트를 개선하는 ES2015 친화적인 대안을 제시합니다.
 
 `Object.getOwnPropertyDescriptors`을 통해서 두개의 객체간 얕은 복사와 클로닝이 가능하다. 예제를 보자.
 
