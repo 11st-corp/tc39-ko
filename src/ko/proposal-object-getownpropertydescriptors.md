@@ -21,7 +21,7 @@ ECMAScript에는 두 객체 간의 복사를 구현한 단일 메서드가 존�
 
 열거형의 여부를 떠나서 모든 descriptor를 확인하는 작업은 객체가 기본적으로 비열거형 메서드와 접근자를 가지고 있기 때문에 클래스와 클래스의 프로토타입의 구성을 구현하는데 중요합니다.
 
-또한 decorator의 경우, 다른 클래스와 믹스인의 descriptor들을 통해 확인할 수 있고 `Object.defineProperties`를 통해 쉽게 할당이 가능하다. 필요하지 않은 descriptor를 필터링하는 것은 반복적이지 않고 간단하다.
+또한 decorator는 다른 클래스 또는 믹스인에서 descriptor를 한 번에 가져와`Object.defineProperties`를 통해 쉽게 할당이 가능합니다. 필요하지 않은 descriptor를 필터링하는 것도 더 간단할 뿐만 아니라 매번 덜 반복적일 수 있습니다.
 
 마지막으로, 무엇보다도 두 객체간의 얕은 복사는 `Object.assign`와 거의 차이가 존재하지 않는다.
 
