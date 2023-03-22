@@ -4,6 +4,8 @@
 
 [명세서](https://tc39.es/ecma262/#sec-exp-operator)
 
+[명세서](https://tc39.es/ecma262/#sec-exp-operator)
+
 ## 상태
 
 ### 4 단계
