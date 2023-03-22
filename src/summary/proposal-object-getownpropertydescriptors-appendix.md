@@ -101,8 +101,7 @@ console.log(j.y); // 5
 ----
 
 
-
-# Object를 복사하는 방법# Object에 속성을 선언하는 방법.
+# Object에 속성을 선언하는 방법.
 
 ## 'property accessor', 속성의 접근자
 
