@@ -36,7 +36,7 @@ ECMAScript에는 두 객체 간의 복사를 구현한 단일 메서드가 존�
 
 ## 제안된 해결책
 
-`Object.getOwnPropertyDescriptor`의 또 다른 버전으로서, 해당 제안은 제네릭 객체이 가진 모든 `descriptor`를 한번의 작업으로 탐색하는 것을 말한다.
+`Object.getOwnPropertyDescriptor`의 또 다른 버전으로서, 본 제안은 제네릭 객체가 가진 모든 `descriptor`를 한번의 작업으로 탐색하는 것에 관한 것입니다.
 
 해당 제안의 **polyfill**은 아래와 같다.
 
