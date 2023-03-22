@@ -29,7 +29,7 @@ ECMAScript에는 두 객체 간의 복사를 구현한 단일 메서드가 존�
 
 ### `Reflect.getOwnPropertyDescriptors`이 꼭 있어야하나?
 
-이 제안의 목적이 여러 형태의 보일러플레이트를 단순화하고, 여러개의 방법들을 일치시키기 위함이므로 현재 `Reflect.getOwnPropertyDescriptors`의 또 다른 버전으로 생각할 수 있다.
+이 제안의 목적이 여러 형태의 보일러플레이트를 단순화하고, 여러개의 방법들을 일치시키기 위함이므로 현재 `Reflect.getOwnPropertyDescriptors`의 또 다른 버전으로 생각할 수 있습니다.
 
 업데이트 : 위원회는 `Reflect`가 `Proxy`의 트랩을 미러링을 위한 것이므로 옵션이 아니라는 것을 사전에 결정하였습니다.
 
