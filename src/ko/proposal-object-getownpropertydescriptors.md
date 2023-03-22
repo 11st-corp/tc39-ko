@@ -8,7 +8,7 @@ stage 0 단계에서 **[Rick Waldron](https://github.com/rwaldron)** 이 제안�
 
 ## 적용 상태
 
-해당 제안은 현재 [the TC39 process](https://github.com/tc39/ecma262/)의 stage 4 단계에 있습니다.
+해당 제안은 현재 [the TC39 process](https://github.com/tc39/ecma262/)의 [4 단계](https://github.com/tc39/proposals/blob/main/finished-proposals.md)에 있습니다.
 
 해당 제안은 `Reflect.getOwnPropertyDescriptors`과 동일하나, 다른 버전과의 일관성을 위하여 `Object`의 public 정적 메서드로 구현되어있습니다.
 
