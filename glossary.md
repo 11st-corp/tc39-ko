@@ -27,6 +27,7 @@
 | --- | --- | --- |
 | Abstract Equality Comparison | 추상 동등 비교 | |
 | annex | 부록 | |
+| champions | 제안한 사람 | |
 | element | 요소 | |
 | process | 과정 | |
 | Strict Equality Comparison | 엄격 동등 비교 | |
