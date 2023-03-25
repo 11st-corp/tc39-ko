@@ -20,7 +20,7 @@ Proposals 번역(Proposal-ko)은 tc39의 [Finished Proposals](https://github.com
 |08|[Shared memory and atomics]("#") | [Shared memory and atomics](https://github.com/tc39/proposal-ecmascript-sharedmem) | 김정호 | 23.03.23
 |09|[Lifting template literal restriction]("#") | [Lifting template literal restriction](https://github.com/tc39/proposal-template-literal-revision) | 이호찬 | 23.03.23
 |10|[`s` (`dotAll`) flag for regular expressions]("#") | [`s` (`dotAll`) flag for regular expressions](https://github.com/tc39/proposal-regexp-dotall-flag) | 박찬우 | 23.03.23
-|11|[RegExp named capture groups]("#") | [RegExp named capture groups]("https://github.com/tc39/proposal-regexp-named-groups") | 권혁주 | 23.03.30
+|11|[RegExp named capture groups]("#") | [RegExp named capture groups](https://github.com/tc39/proposal-regexp-named-groups) | 권혁주 | 23.03.30
 |12|[Rest/Spread Properties]("#") | [Rest/Spread Properties](https://github.com/tc39/proposal-object-rest-spread)  | 김다미 | 23.03.30
 |13|[RegExp Lookbehind Assertions]("#") | [RegExp Lookbehind Assertions](https://github.com/tc39/proposal-regexp-lookbehind) | 김정호 | 23.03.30
 |14|[RegExp Unicode Property Escapes]("#") | [RegExp Unicode Property Escapes](https://github.com/tc39/proposal-regexp-unicode-property-escapes) | 이호찬 | 23.03.30
