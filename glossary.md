@@ -36,6 +36,7 @@
 | asynchronous | 비동기 | |
 | candidate | 후보 | |
 | discussion | 논의 | |
+| champions | 제안한 사람 | |
 | element | 요소 | |
 | finished | 완료 | |
 | process | 과정 | |
