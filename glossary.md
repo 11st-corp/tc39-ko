@@ -10,7 +10,7 @@
 | --- | --- | --- |
 | FAQs | 자주 묻는 질문들 | |
 | Illustrative Examples | 설명을 위한 예시 | |
-| Motivation | 동기 | |
+| Motivation | 제안 동기 | https://github.com/11st-corp/tc39-ko/issues/10 |
 | Naming | 이름 지정 | |
 | Proposed Solution | 제안된 해결책 | |
 | Rationale | 이론적 근거 | |
@@ -27,6 +27,7 @@
 | --- | --- | --- |
 | Abstract Equality Comparison | 추상 동등 비교 | |
 | annex | 부록 | |
+| champions | 제안한 사람 | |
 | element | 요소 | |
 | process | 과정 | |
 | Strict Equality Comparison | 엄격 동등 비교 | |
