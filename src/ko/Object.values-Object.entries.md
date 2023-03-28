@@ -24,7 +24,7 @@
 
 객체를 해시 필터로 사용할 때와 같이, 객체의 자체 값(values)을 필요로 하는 경우가 많습니다. 그리고 lodash/underscore, jQuery, Backbone 등 많은 라이브러리들이 “values” 함수를 가지고 있습니다.
 
-반복(iteration) 또는 직렬화(serialization)를 위해 객체에서 키/값 쌍의 배열(스펙에서의 "enries”)을 얻는 것 또한 유용합니다. 예를 들어 반복가능한 `entries` 와 `entries` iterator를 `Map` 생성자가 받을 수 있는 것은 `entries` 배열을 새 `Map`으로 전달하여, 일반 객체를 `Map`으로 빠르게 변환하는게 가능해졌습니다.
+순회 또는 직렬화를 위해 객체에서 키/값 쌍의 배열(사양에서의 '항목(entries)')을 얻는 것 또한 유용합니다. `Map` 생성자가 순회 가능한 `entries`와 관련된 `entries` 반복자(`WeakMap`도 생성자에서 순회 가능한 `entries`을 허용함)를 수용함에 따라, `entries` 배열을 `new Map`으로 전달하여 일반 객체를 `Map`으로 빠르게 변환하고자 할 때 매우 강력해집니다.
 
 우리는 이미 객체의 키값들을 배열로 반환하는 `Object.keys`와 `Map`/`Set`/`Array` 에서 일치하는  `keys`/`values`/`entries` iterator 객체를 반환한 선례를 가지고 있습니다. 따라서, es-discuss와 이전 TC39 회의에서 논의된 내용에 따라, 본 제안서는 ECMAScript에 `Object.values`와 `Object.entries`를 추가하고자 합니다. `Object.keys`와 같이 이 두 함수는 배열을 반환하게 될 것 입니다. 이 배열들의 순서는 `Object.keys`의 순서와 정확히 동일하며, 각각 반환된 세 배열은 객체의 key, value, entry를 반영하게 됩니다.
 
