@@ -34,11 +34,13 @@
 | Abstract Equality Comparison | 추상 동등 비교 | |
 | annex | 부록 | |
 | asynchronous | 비동기 | |
+| backreferences | 역참조 | |
 | candidate | 후보 | |
 | discussion | 논의 | |
 | champions | 제안한 사람 | |
 | element | 요소 | |
 | finished | 완료 | |
+| named | 명명된 | |
 | process | 과정 | |
 | repository | 저장소 | |
 | stage | 단계 | |
