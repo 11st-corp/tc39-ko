@@ -32,4 +32,4 @@ String.prototype.padStart/padEnd에 대한 ECMAScript 제안, 사양, 테스트 
 
 ## 채워질 문자열과 관련된 왼쪽 패딩: 다른 언어와의 일관성
 
-[#6](https://github.com/tc39/proposal-string-pad-start-end/issues/6)에 따라, '왼쪽' 및 '오른쪽' 기능을 모두 제공하는 다중 문자 채워질 문자열을 지원하는 유일한 언어는 Ruby와 PHP입니다. 두 언어의 "왼쪽 패드"는 마지막이 아닌 채워질 문자열의 _첫_ 부분을 차지합니다. 이것이 중요한 이유에 대한 분명한 예는 `"abc".padStart(10, "0123456789")`가 채워질 문자열의 마지막 부분을 취하면 `"3456789abc"`가 되고 첫 부분을 취하면 `"0123456abc"`가 되는 것입니다. 즉, `string.padStart(mask.length, mask)`는 예상대로 작동해야 합니다.
+[#6](https://github.com/tc39/proposal-string-pad-start-end/issues/6)에 따라, '왼쪽' 및 '오른쪽' 기능을 모두 제공하는 다중 문자 채워질 문자열을 지원하는 유일한 언어는 Ruby와 PHP입니다. 두 언어의 "왼쪽 패드"는 마지막이 아닌 채워질 문자열의 첫 부분을 차지합니다. 이것이 중요한 이유에 대한 분명한 예는 `"abc".padStart(10, "0123456789")`가 채워질 문자열의 마지막 부분을 취하면 `"3456789abc"`가 되고 첫 부분을 취하면 `"0123456abc"`가 되는 것입니다. 즉, `string.padStart(mask.length, mask)`는 예상대로 작동해야 합니다.
