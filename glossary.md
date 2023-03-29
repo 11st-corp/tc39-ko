@@ -12,7 +12,7 @@
 | FAQs | 자주 묻는 질문들 | |
 | Illustrative Examples | 설명을 위한 예시 | |
 | Informative | 정보를 주는 | |
-| Motivation | 동기 | |
+| Motivation | 제안 동기 | https://github.com/11st-corp/tc39-ko/issues/10 |
 | Naming | 이름 지정 | |
 | Prior Art | 선행 기술 | |
 | Proposed Solution | 제안된 해결책 | |
