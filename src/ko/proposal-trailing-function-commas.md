@@ -42,7 +42,7 @@
 9:   'bar', // 다음 매개 변수는 이 줄을 수정할 필요 없이 새로운 줄만 추가하면 됩니다.
 11: );
 ```
-참고로 본 제안은 오로지 문법적인 것이고 의미론적으로는 변경되는게 없습니다, 따라서 trailing comma의 존재는 `<<funciont>>.length` 같은 것들에 영향을 미치지 않습니다.
+참고로 본 제안은 오로지 문법적인 것이고 의미론적으로는 변경되는게 없습니다. 따라서 trailing comma의 존재는 `<<funciont>>.length` 같은 것들에 영향을 미치지 않습니다.
 
 본 저장소에는 제안서 슬라이드, 매개 변수 목록에서 trailing comma를 허용하기 위해 해킹된(hacked) esprima<sup>[1][]</sup> 버전, 빌드 단계에서 trailing comma를 ES5-compatible non-trailing comma로 변환하는 것이 가능하다는 것을 보여주는 매우 간단한 CLI 유틸리티가 포함되어 있습니다.
 
