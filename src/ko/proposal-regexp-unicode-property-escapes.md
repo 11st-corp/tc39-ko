@@ -109,17 +109,13 @@ regexGreekSymbol.test("π");
 
 #### 구분자로 `=`(다른 것이 아닌)를 사용하는 이유는 무엇입니까?
 
-The `=` in `\p{…=…}` aligns with the `=` in `(?=…)` for positive lookaheads and `(?<=…)` for positive lookbehinds. Also, `=` is what most regular expression engines use as a separator. [See issue #8 for more information.](https://github.com/tc39/proposal-regexp-unicode-property-escapes/issues/8)
-
-`\p{…=…}`의 `=`는 긍정적인 전방 탐색의 경우 `(?<=…)`의 `=`와 긍정적인 후방 탐색의 `(?<=…)`로 정렬됩니다. 또한 `=`는 대부분의 정규 표현식 엔진이 구분 기호로 사용하는 것입니다. [자세한 내용은 이슈 #8을 참조하세요.](https://github.com/tc39/proposal-regexp-unicode-property-escapes/issues/8)
+`\p{…=…}`의 `=`는 긍정적인 전방 탐색의 경우 `(?=…)`의 `=`와 긍정적인 후방 탐색의 `(?<=…)`로 정렬됩니다. 또한 `=`는 대부분의 정규 표현식 엔진이 구분 기호로 사용하는 것입니다. [자세한 내용은 이슈 #8을 참조하세요.](https://github.com/tc39/proposal-regexp-unicode-property-escapes/issues/8)
 
 #### `=` 외에 구분 기호로 `:`을 지원하지 않는 이유는 무엇입니까?
 
 여러 구분자를 지원하는 것은 어떤 가치도 추가하지 않으며 따라서 추가된 구현 복잡성(작을 수 있음)은 그만한 가치가 없습니다. `\p{Script_Extensions=Greek}` 작동; 어쨌든 이상적인 목표인 다른 언어와의 호환성 외에 다른 구문을 도입할 이유가 없습니다.
 
 필요한 경우, 별도의 ECMAScript 제안의 일부로 나중에 `:` 구분 기호에 대한 지원을 추가할 수 있습니다. 그러나 지금 추가하면 되돌릴 수 없습니다.
-
-#### Why not support e.g. `\p{ScriptName}` as a shorthand for `\p{Script=ScriptName}`?
 
 #### 예를들어 `\p{Script=ScriptName}`의 단축형인 `\p{ScriptName}`을 지원하지 않는 이유?
 
