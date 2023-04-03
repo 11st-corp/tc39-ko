@@ -24,8 +24,12 @@ Proposals 번역(Proposal-ko)은 tc39의 [Finished Proposals](https://github.com
 |12|[Rest/Spread Properties]("#") | [Rest/Spread Properties](https://github.com/tc39/proposal-object-rest-spread)  | 김다미 | 23.03.30
 |13|[RegExp Lookbehind Assertions]("#") | [RegExp Lookbehind Assertions](https://github.com/tc39/proposal-regexp-lookbehind) | 김정호 | 23.03.30
 |14|[RegExp Unicode Property Escapes]("#") | [RegExp Unicode Property Escapes](https://github.com/tc39/proposal-regexp-unicode-property-escapes) | 이호찬 | 23.03.30
-|15|[`Promise.prototype.finally`]("#") | [`Promise.prototype.finally`](https://github.com/tc39/proposal-promise-finally) | 박찬우 | 23.03.30
-
+|15|[`Promise.prototype.finally`]("#") | [`Promise.prototype.finally`](https://github.com/tc39/proposal-promise-finally) | 박찬우 | 23.04.07
+|16|[Asynchronous Iteration]("#") | [RegExp namAsynchronous Iteration](https://github.com/tc39/proposal-async-iteration) | 권혁주 | 23.04.07
+|17|[Optional `catch` binding]("#") | [Optional `catch` binding](https://github.com/tc39/proposal-optional-catch-binding)  | 김다미 | 23.04.07
+|18|[JSON superset]("#") | [JSON superset](https://github.com/tc39/proposal-json-superset) | 김정호 | 23.04.07
+|19|[`Symbol.prototype.description`]("#") | [`Symbol.prototype.description`](https://github.com/tc39/proposal-Symbol-description) | 이호찬 | 23.04.07
+|20|[`Function.prototype.toString` revision]("#") | [`Function.prototype.toString` revision](https://github.com/tc39/Function-prototype-toString-revision) | 박찬우 | 23.04.07
  
 ## ⚡️Members
 
