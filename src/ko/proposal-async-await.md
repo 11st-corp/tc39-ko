@@ -6,7 +6,7 @@ ECMAScript에 Promise 및 Generators의 도입은 ECMAScript에서 비동기 코
 
 
 이 저장소는 제안의 많은 기능들을 사용한 완전한 예제가 포함되어 있습니다. 이 예시를 실행하려면:
-```js
+```sh
 npm install
 regenerator -r server.asyncawait.js | node
 ```
