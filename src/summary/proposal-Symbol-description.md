@@ -4,8 +4,6 @@ ES2019
 
 ## 명세서
 
-### Spec
-
 1. Let s be the this value.
 2. Let sym be ? thisSymbolValue(s).
 3. Return sym.[[Description]].
