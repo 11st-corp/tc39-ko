@@ -1,4 +1,4 @@
-# Asynchronous Iterators for JavaScript 번역
+# Asynchronous Iterators for JavaScript
 
 ## 개요 및 제안 동기
 
