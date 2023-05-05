@@ -12,7 +12,7 @@
 
 ## **Async iterators and async iterables**
 
-async iteratorsms `next()` 메서드가 `{value, done}` 쌍에 대한 프로미스를 반환한다는 점을 제외하면 반복자와 매우 유사합니다. 위에서 언급한 대로, 반복자의 다음 value와 “done” 상태는 반복자 메서드가 반환될 때 알 수 없으므로 반복자 결과 쌍에 대한 프로미스를 반환해야 합니다.
+async iterator는 `next()` 메서드가 `{value, done}` 쌍에 대한 프로미스를 반환한다는 점을 제외하면 반복자와 매우 유사합니다. 위에서 언급한 대로, 반복자의 다음 value와 “done” 상태는 반복자 메서드가 반환될 때 알 수 없으므로 반복자 결과 쌍에 대한 프로미스를 반드시 반환해야 합니다.
 
 ```jsx
 const { value, done } = syncIterator.next();
@@ -22,7 +22,7 @@ asyncIterator.next().then(({ value, done }) => /* ... */);
 
 게다가, 주어진 객체인 `Symbol.asyncIterator`에서 비동기를 얻는 데 사용되는 새로운 기호를 소개합니다. 이를 통해 `Symbol.iterator` 가 일반적인 동기화 가능한 상태로 알림을 허용하는 방법과 유사한 임의 객체가 비동기화 가능함을 알릴 수 있습니다. 이를 사용할 수 있는 클래스의 예시로는 읽기 가능한 스트림([readable stream](https://streams.spec.whatwg.org/#rs-class))<sup>[3][]</sup>이 있습니다.
 
-async iterator의 개념에는 요청 대기열의 개념이 내포되어 있습니다. 이전 요청의 결과가 resolved되기 전에 반복자 메서드를 여러번 호출할 수 있으므로, 각 메서드 호출은 모든 이전 요청 작업이 완료될 때까지 내부적으로 대기열에 있어야 합니다.
+async iterator의 개념에는 요청 대기열의 개념이 내포되어 있습니다. 이전 요청의 결과가 resolved되기 전에 반복자 메서드를 여러번 호출할 수 있으므로, 각 메서드 호출은 모든 이전 요청 작업이 완료될 때까지 반드시 내부적으로 대기열에 있어야 합니다.
 
 ## **The async iteration statement: `for`-`await`-`of`**
 
