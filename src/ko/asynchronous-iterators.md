@@ -6,13 +6,13 @@
 
 시퀀스에 있는 다음 value와 데이터 소스의 “done” 상태는 반복자의 메서드가 반환될 때 이미 알고 있어야 하기 때문에, 반복자는 ‘동기적인’ 데이터 소스를 나타내는데에만 적합합니다. JavaScript 프로그래머가 마주하는 많은 데이터 소스(in-memory 배열이나 다른 자료구조와 같은)는 동기화되어 있지만, 다른 많은 데이터 소스는 동기화되어 있지 않습니다. 예를 들어, I/O 접근이 필요한 모든 데이터 소스는 일반적으로 이벤트 기반 또는 스트리밍 비동기 API를 사용하여 표시됩니다. 불행히도, 반복자는 그러한 데이터 소스를 나타내는데 사용될 수 없습니다.
 
-(게다가 반복자의 promise도 충분하지 않습니다. 왜냐하면 비동기적인 value의 결정을 허용할 뿐 아니라 “done” 상태의 동기적인 결정도 요구하기 때문입니다.)
+(게다가 반복자의 프로미스도 충분하지 않습니다. 왜냐하면 비동기적인 value의 결정을 허용할 뿐 아니라 “done” 상태의 동기적인 결정도 요구하기 때문입니다.)
 
 비동기적인 데이터 소스에 대한 일반적인 데이터 접근을 허용하기 위해서 비동기 반복문(`for`-`await`-`of`) 및 비동기 제너레이터 함수 기능을 도입합니다.
 
 ## **Async iterators and async iterables**
 
-async iteratorsms `next()` 메서드가 `{value, done}` 쌍에 대한 promise를 반환한다는 점을 제외하면 반복자와 매우 유사합니다. 위에서 언급한 대로, 반복자의 다음 value와 “done” 상태는 반복자 메서드가 반환될 때 알 수 없으므로 반복자 결과 쌍에 대한 promise를 반환해야 합니다.
+async iteratorsms `next()` 메서드가 `{value, done}` 쌍에 대한 프로미스를 반환한다는 점을 제외하면 반복자와 매우 유사합니다. 위에서 언급한 대로, 반복자의 다음 value와 “done” 상태는 반복자 메서드가 반환될 때 알 수 없으므로 반복자 결과 쌍에 대한 프로미스를 반환해야 합니다.
 
 ```jsx
 const { value, done } = syncIterator.next();
@@ -28,7 +28,7 @@ async iterator의 개념에는 요청 대기열의 개념이 내포되어 있습
 
 우리는 비동기 객체에 대해 반복되는 for-of 반복문의 변형을 소개합니다. 사용 예시는 다음과 같습니다.
 
-```jsx
+```js
 for await (const line of readLines(filePath)) {
   console.log(line);
 }
@@ -38,19 +38,19 @@ for await (const line of readLines(filePath)) {
 
 실행 중에, `[Symbol.asyncIterator]()` 메서드를 사용하여 데이터 소스에서 비동기 반복자가 생성됩니다.
 
-시퀀스의 다음 value에 접근할 때마다, 우리는 암묵적으로 promise의 반환을 `await` 합니다.
+시퀀스의 다음 value에 접근할 때마다, 우리는 암묵적으로 프로미스의 반환을 `await` 합니다.
 
 ## 비동기 제너레이터 함수
 
 비동기 제너레이터 함수는 제너레이터 함수와 유사합니다. 차이점은 다음과 같습니다.
 
-- 호출되면, 비동기 제너레이터 함수는 객체를 반환합니다. (`next`, `throw`, 그리고 `return`) 메서드를 가진 비동기 제너레이터는 `{value, done}`을 직접적으로 반환하는 대신, `{value, done}`을 위한 promise를 반환합니다. 이것은 반환된 비동기 제너레이터 객체를 비동기 반복자로 자동으로 만들어줍니다.
+- 호출되면, 비동기 제너레이터 함수는 객체를 반환합니다. (`next`, `throw`, 그리고 `return`) 메서드를 가진 비동기 제너레이터는 `{value, done}`을 직접적으로 반환하는 대신, `{value, done}`을 위한 프로미스를 반환합니다. 이것은 반환된 비동기 제너레이터 객체를 비동기 반복자로 자동으로 만들어줍니다.
 - `await` 구문이 `for`-`await`-`of` 문에서 허용됩니다.
 - `yield*`의 동작은 비동기 반복으로의 위임을 지원하도록 수정되었습니다.
 
 예를 들어:
 
-```jsx
+```js
 async function* readLines(path) {
   let file = await fileOpen(path);
 
@@ -68,7 +68,7 @@ async function* readLines(path) {
 
 ## 구현 상태
 
-### Native implementations
+### 네이티브 구현
 
 - Chakra: [outstanding issue](https://github.com/Microsoft/ChakraCore/issues/2720)
 - JavaScriptCore: [shipping in Safari Tech Preview 40](https://github.com/tc39/proposal-async-iteration/issues/63#issuecomment-330929480)
