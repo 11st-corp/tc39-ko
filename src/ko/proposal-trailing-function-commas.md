@@ -46,7 +46,7 @@
 
 본 저장소에는 제안서 슬라이드, 매개 변수 목록에서 trailing comma를 허용하기 위해 해킹된(hacked) esprima<sup>[1][]</sup> 버전, 빌드 단계에서 trailing comma를 ES5-compatible non-trailing comma로 변환하는 것이 가능하다는 것을 보여주는 매우 간단한 CLI 유틸리티가 포함되어 있습니다.
 
-CLI의 경우 디스크에서 읽을 단일 파일 이름 인수를 지정하거나 원본 텍스트를 CLI에 pipe<sup>[2][]</sup>할 수 있습니다.
+CLI의 경우 디스크에서 읽을 단일 파일 이름 인수를 지정하거나 원본 텍스트를 CLI에 pipe<sup>[2][]</sup>로 연결할 수 있습니다.
 ## 스펙 테스트
 https://tc39.github.io/proposal-trailing-function-commas/ 를 보세요.
 
