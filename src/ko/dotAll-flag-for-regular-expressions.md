@@ -131,7 +131,6 @@ re.flags
 
 ## 구현
 
----
 
 - [V8](https://bugs.chromium.org/p/v8/issues/detail?id=6172), shipping in Chrome 62
 - [JavaScriptCore](https://bugs.webkit.org/show_bug.cgi?id=172634), shipping in [Safari Technology Preview 39a](https://developer.apple.com/safari/technology-preview/release-notes/)
