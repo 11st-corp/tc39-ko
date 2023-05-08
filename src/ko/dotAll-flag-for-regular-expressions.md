@@ -122,7 +122,6 @@ re.flags
 
 ## 명세
 
----
 
 
 - [Ecmarkup source](https://github.com/tc39/proposal-regexp-dotall-flag/blob/main/spec.html)
