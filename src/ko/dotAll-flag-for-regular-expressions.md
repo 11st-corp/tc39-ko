@@ -4,7 +4,6 @@
 
 ## 상태
 
----
 
 이 제안은 [the TC39 process](https://tc39.es/process-document/) 의 4단계에 있습니다.
 
