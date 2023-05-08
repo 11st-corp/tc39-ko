@@ -18,7 +18,7 @@ JS의 정규식에서 마침표(`.`)는 문자의 종류와는 상관없이 단�
 1. 마침표(`.`)는 아스트랄 문자와 매칭되지 않습니다. 이 예외사항을 해결하기 위해서는 `u` flag를 사용해야합니다.
 2. 마침표(`.`)는 [line terminator characters](https://tc39.es/ecma262/#prod-LineTerminator) 와 매칭되지 않습니다.
 
-*ECMAScript*에서는 아래의 문자를 `line terminator characters`로 정의하고 있습니다.
+*ECMAScript*에서는 아래의 문자를 line terminator characters로 정의하고 있습니다.
 - U+000A LINE FEED (LF) (`\n`)
 - U+000D CARRIAGE RETURN (CR) (`\r`)
 - U+2028 LINE SEPARATOR
