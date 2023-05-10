@@ -18,7 +18,7 @@ z; // { a: 3, b: 4 }
 
 ## [전개 속성](https://github.com/tc39/proposal-object-rest-spread/blob/main/Spread.md)
 
-객체 초기자의 전개 속성 제공된 객체에서 새로 생성된 객체로 자체 열거 가능한 속성을 복사합니다.
+객체 초기자의 전개 속성은 제공된 객체에서 새로 생성된 객체로 자체 열거 가능한 속성을 복사합니다.
 ```js
 let n = { x, y, ...z };
 n; // { x: 1, y: 2, a: 3, b: 4 }
