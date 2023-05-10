@@ -45,9 +45,8 @@
 | finished | 완료 | |
 
 | getter | 접근자 | [접근자](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/get) |
-| initializer | 초기화 구문 | |
+| initializer | 초기화 | |
 | integrity | 무결성 | |
-| merge | 합병 | |
 | non-enumerable | 열거 불가능한 | |
 | overiding | 재정의 | | 
 | own properties | 특정 속성 | [Object.prototype.hasOwnProperty()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) |
