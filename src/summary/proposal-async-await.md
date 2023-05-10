@@ -45,7 +45,7 @@ ECMAScript에 프로미스와 제너레이터를 도입하면 ECMAScript에 비�
 
 이미 Promise가 있는 코드는 이러한 종류의 루프 및 예외 처리가 어려운 직선 콜백 스타일에서 훨씬 개선되었습니다.
 
-[Task.js](https://taskjs.org) 및 유사한 라이브러리는 제너레이터를 사용하여 동일한 의미를 유지하는 코드를 더욱 단순화하는 방법을 제공합니다.
+[Task.js](https://taskjs.org) 및 유사한 라이브러리는 generator를 사용하여 동일한 의미를 유지하는 코드를 더욱 단순화하는 방법을 제공합니다.
 
 ```js
     function chainAnimationsGenerator(elem, animations) {
