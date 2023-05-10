@@ -4,7 +4,7 @@ ECMAScript 6은 배열 구조 분해 할당을 위한 [나머지 요소](https:/
 
 본 제안서는 객체 구조 분해 할당을 위한 유사한 [나머지 속성](https://github.com/tc39/proposal-object-rest-spread/blob/main/Rest.md)과 객체 리터럴을 위한 [전개 속성](https://github.com/tc39/proposal-object-rest-spread/blob/main/Spread.md)을 도입합니다.
 
-## [명세](https://tc39.es/proposal-object-rest-spread/)
+## [명세서](https://tc39.es/proposal-object-rest-spread/)
 [명세](https://tc39.es/proposal-object-rest-spread/)
 
 ## [나머지 속성](https://github.com/tc39/proposal-object-rest-spread/blob/main/Rest.md)
