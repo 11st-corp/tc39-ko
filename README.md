@@ -11,12 +11,12 @@ Proposals 번역(Proposal-ko)은 tc39의 [Finished Proposals](https://github.com
 | No. | Proposal-ko | Proposal-en | Author | Date |
 | :-: | :---------: | :---: | :--------: | :--------: |
 |01|[`Array.prototype.includes`](./src/ko/Array.prototype.includes.md) | [`Array.prototype.includes`](https://github.com/tc39/proposal-Array.prototype.includes) | 권혁주 | 23.03.16
-|02|[Exponentiation operator]("#") | [Exponentiation operator](https://github.com/tc39/proposal-exponentiation-operator)  | 김다미 | 23.03.16
+|02|[Exponentiation operator](./src/ko/proposal-exponentiation-operator.md) | [Exponentiation operator](https://github.com/tc39/proposal-exponentiation-operator)  | 김다미 | 23.03.16
 |03|[`Object.values`/`Object.entries`]("#") | [`Object.values`/`Object.entries`](https://github.com/tc39/proposal-object-values-entries) | 김정호 | 23.03.16
 |04|[String padding](./src/ko/proposal-string-pad-start-end.md) | [String padding](https://github.com/tc39/proposal-string-pad-start-end) | 이호찬 | 23.03.16
 |05|[`Object.getOwnPropertyDescriptors`]("#") | [`Object.getOwnPropertyDescriptors`](https://github.com/tc39/proposal-object-getownpropertydescriptors) | 박찬우 | 23.03.16
 |06|[Trailing commas in function parameter lists and calls]("#") | [Trailing commas in function parameter lists and calls](https://github.com/tc39/proposal-trailing-function-commas) | 권혁주 | 23.03.23
-|07|[Async functions]("#") | [Async functions](https://github.com/tc39/proposal-async-await)  | 김다미 | 23.03.23
+|07|[Async functions](./src/ko/proposal-async-await.md) | [Async functions](https://github.com/tc39/proposal-async-await)  | 김다미 | 23.03.23
 |08|[Shared memory and atomics]("#") | [Shared memory and atomics](https://github.com/tc39/proposal-ecmascript-sharedmem) | 김정호 | 23.03.23
 |09|[Lifting template literal restriction]("#") | [Lifting template literal restriction](https://github.com/tc39/proposal-template-literal-revision) | 이호찬 | 23.03.23
 |10|[`s` (`dotAll`) flag for regular expressions]("#") | [`s` (`dotAll`) flag for regular expressions](https://github.com/tc39/proposal-regexp-dotall-flag) | 박찬우 | 23.03.23
@@ -25,7 +25,7 @@ Proposals 번역(Proposal-ko)은 tc39의 [Finished Proposals](https://github.com
 |13|[RegExp Lookbehind Assertions]("#") | [RegExp Lookbehind Assertions](https://github.com/tc39/proposal-regexp-lookbehind) | 김정호 | 23.03.30
 |14|[RegExp Unicode Property Escapes]("#") | [RegExp Unicode Property Escapes](https://github.com/tc39/proposal-regexp-unicode-property-escapes) | 이호찬 | 23.03.30
 |15|[`Promise.prototype.finally`]("#") | [`Promise.prototype.finally`](https://github.com/tc39/proposal-promise-finally) | 박찬우 |  23.03.30
-|16|[Asynchronous Iteration]("#") | [RegExp namAsynchronous Iteration](https://github.com/tc39/proposal-async-iteration) | 권혁주 | 23.04.07
+|16|[Asynchronous Iteration]("#") | [Asynchronous Iteration](https://github.com/tc39/proposal-async-iteration) | 권혁주 | 23.04.07
 |17|[Optional `catch` binding]("#") | [Optional `catch` binding](https://github.com/tc39/proposal-optional-catch-binding)  | 김다미 | 23.04.07
 |18|[JSON superset]("#") | [JSON superset](https://github.com/tc39/proposal-json-superset) | 김정호 | 23.04.07
 |19|[`Symbol.prototype.description`]("#") | [`Symbol.prototype.description`](https://github.com/tc39/proposal-Symbol-description) | 이호찬 | 23.04.07
