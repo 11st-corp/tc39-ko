@@ -18,7 +18,7 @@ ECMAScript에 프로미스와 제너레이터를 도입하면 ECMAScript에 비�
 이 제안의 개발은 https://github.com/tc39/ecmascript-asyncawait 에서 진행되고 있습니다. 그 곳에 문제를 제출해 주세요. 사소하지 않은 기여는 TC39 회원으로 제한되지만 사소한 이슈에 대한 pull request는 환영받고 권장됩니다!
 
 ## 이 제안의 상태
-이 제안은 2015년 9월 ECMAScript [명세 과정](https://tc39.es/process-document)의 3단계('후보')로 승인되었습니다. 챔피언은 이 제안을 11월 말까지 4단계('완료')로 승일할 계획입니다.
+이 제안은 2015년 9월 ECMAScript [명세 과정](https://tc39.es/process-document)의 3단계('후보')로 승인되었습니다. 챔피언은 이 제안을 11월 말까지 4단계('완료')로 승인할 계획입니다.
 
 ## 예시
 
