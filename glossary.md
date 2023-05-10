@@ -12,7 +12,7 @@
 | FAQs | 자주 묻는 질문들 | |
 | Illustrative Examples | 설명을 위한 예시 | |
 | Informative | 정보를 주는 | |
-| Motivation | 동기 | |
+| Motivation | 제안 동기 | https://github.com/11st-corp/tc39-ko/issues/10 |
 | Naming | 이름 지정 | |
 | Prior Art | 선행 기술 | |
 | Proposed Solution | 제안된 해결책 | |
@@ -34,6 +34,7 @@
 | Abstract Equality Comparison | 추상 동등 비교 | |
 | annex | 부록 | |
 | asynchronous | 비동기 | |
+| backreferences | 역참조 | |
 | candidate | 후보 | |
 | champions | 제안한 사람 | |
 | consideration | 고려 사항 | |
@@ -42,6 +43,7 @@
 | enumerable | 열거 가능한 | |
 | error | 오류 | |
 | finished | 완료 | |
+
 | getter | 접근자 | [접근자](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/get) |
 | initializer | 초기화 구문 | |
 | integrity | 무결성 | |
@@ -49,6 +51,7 @@
 | non-enumerable | 열거 불가능한 | |
 | overiding | 재정의 | | 
 | own properties | 특정 속성 | [Object.prototype.hasOwnProperty()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) |
+| named | 명명된 | |
 | process | 과정 | |
 | prototype | 프로토타입 | |
 | repository | 저장소 | |
