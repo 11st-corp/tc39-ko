@@ -43,7 +43,6 @@
 | enumerable | 열거 가능한 | |
 | error | 오류 | |
 | finished | 완료 | |
-
 | getter | 접근자 | [접근자](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/get) |
 | initializer | 초기화 | |
 | integrity | 무결성 | |
@@ -62,4 +61,10 @@
 | stage | 단계 | |
 | Strict Equality Comparison | 엄격 동등 비교 | |
 | structure | 구조 | | 
-| transpiler | 트랜스파일러 | |
+
+
+## 기술
+| 용어 | 번역 | 참고 링크 |
+| --- | --- | --- |
+| Promise | 프로미스 |[MDN - Promise](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Promise)|
+| Generator | 제너레이터 |[MDN - Generator](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Generator)|
