@@ -141,7 +141,7 @@ regexGreekSymbol.test("π");
 
 ### `\d`의 유니코드 인식 버전
 
-ASCII `[0-9]`가 아닌 임의의 유니코드의 십진수와 일치시키려면 [UTS18](http://unicode.org/reports/tr18/#digit)에 따라 `\d` 대신 `\p{Decimal_Number}`를 사용하십시오.
+ASCII `[0-9]`가 아닌 임의의 유니코드의 10진수와 일치시키려면 [UTS18](http://unicode.org/reports/tr18/#digit)에 따라 `\d` 대신 `\p{Decimal_Number}`를 사용하십시오.
 
 ```js
 const regex = /^\p{Decimal_Number}+$/u;
@@ -151,7 +151,7 @@ regex.test("𝟏𝟐𝟑𝟜𝟝𝟞𝟩𝟪𝟫𝟬𝟭𝟮𝟯𝟺𝟻𝟼");
 
 ### `\D`의 유니코드 인식 버전
 
-`[^0-9]`가 아닌 십진수가 아닌 임의의 유니코드 기호를 일치시키려면, `\D` 대신 `\P{Decimal_Number}`를 사용하십시오.
+`[^0-9]`가 아닌 10진수가 아닌 임의의 유니코드 기호를 일치시키려면, `\D` 대신 `\P{Decimal_Number}`를 사용하십시오.
 
 ```js
 const regex = /^\P{Decimal_Number}+$/u;
