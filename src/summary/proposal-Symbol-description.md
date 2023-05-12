@@ -60,4 +60,4 @@ Symbol().description; // undefined
 
 > 메서드 대신에 getter를 사용해야하는 이유?
 
-`RegExp.prototype.flags`, `Object.prototype.__proto__`, `Map.prototype.size`, `Set.prototype.size`,` Error.prototype.stack`, `%TypedArrayPrototype%.buffer`, `%TypedArrayPrototype%.byteLength`, `%TypedArrayPrototype%.byteOffset` 이러한 `__proto__` 속성들은 모두 읽기 전용이며 setter 없이 getter로만 구현이 되었다.
+`RegExp.prototype.flags`, `Object.prototype.__proto__`, `Map.prototype.size`, `Set.prototype.size`,` Error.prototype.stack`, `%TypedArrayPrototype%.buffer`, `%TypedArrayPrototype%.byteLength`, `%TypedArrayPrototype%.byteOffset` 이러한 `__proto__` 속성들은 모두 읽기 전용이며 setter 없이 getter로만 구현이 되었습니다.
