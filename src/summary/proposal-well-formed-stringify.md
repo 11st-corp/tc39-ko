@@ -1,6 +1,25 @@
 # 목차
 
-1. **[사전 지식](#사전-지식)**
+1. **[유니코드란?](#유니코드란?)**
+2. **[UTF](#UTF)**
+3. **[JSON 단일 문자 이스케이프 시퀀스](#JSON-단일-문자-이스케이프-시퀀스)**
+3. **[RFC 8259 section 8.1](#RFC-8259-section-8.1)**
+4. **[JSON.stringify 명세](#JSON.stringify-명세)**
+5. **[JSON 직렬화 레코드](#JSON-직렬화-레코드)**
+
+# 유니코드란?
+- 유니코드는 컴퓨터와 사람이 대화하기 위한 중개자 역할을 합니다. 유니코드는 사람이 사용하는 모든 언어를 bit로 표현된 숫자로 매핑 해놓고, 모든 문자에 Index를 지정합니다. 참고로 이때 Index를 Code Point 혹은 Code Unit라 부르기도 합니다.
+```
+'A' - 0x0041이라는 Index
+'a' - 0x0061이라는 Index
+'가' - 0xac00이라는 Index
+```
+더 많은 글자와 Index를 보려면 [Code Charts](http://www.unicode.org/charts/)를 참고하세요.
+
+## UTF
+- Univercsal Coded Character Set Transformation Format - N - bit, Unicode Transformation format
+- UTF-8과 UTF-16은 유니코드를 표현하는 인코딩 방식입니다. 유니코드에서 한글은 UTF-8 가변 인코딩 방식을 따릅니다. 
+- UTF-8에서 3바이트로 표현되는 문자들이 UTF-16에서는 2바이트로 표현되므로 메모리를 줄일 수 있습니다. 
 
 # JSON 단일 문자 이스케이프 시퀀스
  이스케이프 시퀀스(escape sequence)를 조합하면 특수문자를 문자열에 넣을 수 있습니다. 이스케이프 시퀀스(escape sequence) 다음과 같습니다.
@@ -28,7 +47,11 @@ JSON의 이전 사양에서는 JSON 텍스트를 전송할 때 UTF-8을 사용�
 [JSON.stringify 명세 바로가기](https://tc39.es/ecma262/#sec-json.stringify)
 
 ## JSON.stringify ( value [ , replacer [ , space ] ] )
-이 함수는 [ECMAScript 언어 값](https://tc39.es/ecma262/#sec-ecmascript-language-types), 또는 undefined을 나타내는 UTF-16 인코딩 JSON 형식의 문자열을 반환합니다. 세 가지 매개변수를 사용할 수 있습니다. `value` 매개변수는 ECMAScript 언어 값이며 일반적으로 객체 또는 배열이지만 String, Boolean, Number 또는 null일 수도 있습니다. 선택적 `replacer` 매개변수는 객체 및 배열이 문자열화되는 방식을 변경하는 함수이거나 문자열화될 객체 속성을 선택하기 위한 포함 목록 역할을 하는 문자열 및 숫자 배열입니다. 선택적 `space` 매개변수는 사람의 가독성을 향상시키기 위해 결과에 공백을 삽입할 수 있는 String 또는 Number입니다.
+이 함수는 [ECMAScript 언어 값](https://tc39.es/ecma262/#sec-ecmascript-language-types), 또는 undefined을 나타내는 UTF-16 인코딩 JSON 형식의 문자열을 반환합니다. 세 가지 매개변수를 사용할 수 있습니다. `value` 매개변수는 ECMAScript 언어 값이며 일반적으로 객체 또는 배열이지만 String, Boolean, Number 또는 null일 수도 있습니다. 
+
+선택적 `replacer` 매개변수는 객체 및 배열이 문자열화되는 방식을 변경하는 함수이거나 문자열화될 객체 속성을 선택하기 위한 포함 목록 역할을 하는 문자열 및 숫자 배열입니다. 
+
+선택적 `space` 매개변수는 사람의 가독성을 향상시키기 위해 결과에 공백을 삽입할 수 있는 String 또는 Number입니다.
 
 ## JSON.stringify 관련 개념
 
