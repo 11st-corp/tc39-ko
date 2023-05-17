@@ -36,13 +36,35 @@
 | asynchronous | 비동기 | |
 | backreferences | 역참조 | |
 | candidate | 후보 | |
-| discussion | 논의 | |
 | champions | 제안한 사람 | |
+| consideration | 고려 사항 | |
+| discussion | 논의 | |
 | element | 요소 | |
+| enumerable | 열거 가능한 | |
+| error | 오류 | |
 | finished | 완료 | |
+| getter | 접근자 | [접근자](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/get) |
+| initializer | 초기화 | |
+| integrity | 무결성 | |
+| non-enumerable | 열거 불가능한 | |
+| overiding | 재정의 | | 
+| own properties | 특정 속성 | [Object.prototype.hasOwnProperty()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) |
 | named | 명명된 | |
 | process | 과정 | |
+| prototype | 프로토타입 | |
 | repository | 저장소 | |
+| rest | 나머지 | [구조 분해 할당](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) | 
+| runtime | 런타임 | |
+| semantics | 의미 | |
+| setter | 설정자 | [설정자](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/set) |
+| spread | 전개 | |
 | stage | 단계 | |
 | Strict Equality Comparison | 엄격 동등 비교 | |
 | structure | 구조 | | 
+
+
+## 기술
+| 용어 | 번역 | 참고 링크 |
+| --- | --- | --- |
+| Promise | 프로미스 |[MDN - Promise](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Promise)|
+| Generator | 제너레이터 |[MDN - Generator](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Generator)|
