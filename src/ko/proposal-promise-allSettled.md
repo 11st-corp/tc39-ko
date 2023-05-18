@@ -1,4 +1,4 @@
-# # `Promise.allSettled`
+# `Promise.allSettled`
 
 `Promise.allSettled`에 대한 ECMAScript 제안 및 참조 구현.
 
