@@ -1,8 +1,8 @@
 # import.meta
 
-본 저장소는 JavaScript에 `import.meta` 메타속성을 추가하기 위한 제안서를 포함하고 있으며, 현재 [TC39 4단계 과정](https://tc39.github.io/process-document/))에 있습니다.
+본 저장소는 JavaScript에 `import.meta` 메타속성을 추가하기 위한 제안서를 포함하고 있으며, 현재 [TC39 4단계 과정](https://tc39.github.io/process-document/)에 있습니다.
 
-이전에 본 문제 영역은 module-loading 커뮤니티와 [whatwg/html#1013](https://github.com/whatwg/html/issues/1013)에서 토론되었습니다. 그 결과로 [이 슬라이드](https://docs.google.com/presentation/d/1p1BGFY05-iCiop8yV0hNyWU41_wlwwfv6HIDkRNNIBQ/edit?usp=sharing))가 2017년 5월 TC39 회의에서 발표되었습니다. 위 슬라이드에서 제시된 옵션에 대한 위원회의 반응은 본 제안서에서 선택된 특정 형식으로 이어지게 되었으며, 이러한 토론들은 이 README의 나머지 부분에서 요약되어 있습니다.
+이전에 이 문제 영역은 module-loading 커뮤니티와 [whatwg/html#1013](https://github.com/whatwg/html/issues/1013)에서 토론되었습니다. 그 결과로 [이 슬라이드](https://docs.google.com/presentation/d/1p1BGFY05-iCiop8yV0hNyWU41_wlwwfv6HIDkRNNIBQ/edit?usp=sharing)가 2017년 5월 TC39 회의에서 발표되었습니다. 위 슬라이드에서 제시된 옵션에 대한 위원회의 반응은 본 제안서에서 선택된 특정 형식으로 이어지게 되었으며, 이러한 토론들은 이 README의 나머지 부분에서 요약되어 있습니다.
 
 [명세서 초안](https://tc39.github.io/proposal-import-meta/)을 확인하고 [이슈 트래커](https://github.com/tc39/proposal-import-meta/issues)에서 토론에 참여할 수 있습니다.
 
@@ -40,7 +40,7 @@ const theOption = document.currentScript.dataset.option;
 
 한 가지 참고할 점은, 렉시컬 스코프 값 대신, (사실상) 전역 변수를 사용하는 메커니즘은 문제가 있습니다. 이는 값이 최상위 수준에서만 설정되기 때문에, 비동기 코드에서 사용하려면 최상위 수준에 저장해야 합니다.
 
-### 제가 "main" 모듈입니까?
+### 내가 "main" 모듈입니까?
 
 Node.js에서는 자신이 프로그램의 "main" 또는 "entry" 모듈인지에 따라 분기하는 것이 일반적인 관행입니다. 다음과 같은 코드를 사용하여 분기합니다.
 
@@ -51,8 +51,6 @@ if (module === process.mainModule) {
 ```
 
 즉, 단일 파일이 가져올 때는 라이브러리로 동작하고, 직접 실행될 때는 부작용을 가진 프로그램으로 동작하도록 합니다.
-
-Note how this particular formulation relies on comparing the host-provided scoped value `module` with the host-provided global value `process.mainModule`.
 
 특히, 이 구현 방식은 호스트에서 제공하는 범위 값 `module`과 전역 값 `process.mainModule`을 비교하는 의존성을 가지고 있음에 유의해야 합니다.
 
@@ -113,7 +111,7 @@ Note how this particular formulation relies on comparing the host-provided scope
 import { url, scriptElement } from "js:context";
 ```
 
-이는 기존의 프레임워크와 잘 어울리며, 호스트 측에서 완전히 처리할 수 있으므로 새로운 ECMAScript 제안이 필요하지 않습니다(모듈 지정자가 어떻게 해석되는지에 대한 제어권이 호스트에게 있기 때문입니다). 그러나 웹에서는 [WebKit에서 반대 의견](https://github.com/whatwg/html/issues/1013#issuecomment-281863721)이 제시되었으며, TC39가 이 아이디어에 대해 일치된 의견을 가지지 않았기 때문에 WebKit의 반대 의견을 극복하기 위해 시도할 가치가 없다고 판단되었습니다. Node.js는 여전히 이를 구현할 수 있으며, 특히 `import.meta`가 필요한 시기에 충분히 사용 가능하지 않을 경우에는 구현할 수 있습니다.
+이는 기존의 프레임워크와 잘 어울리며, 호스트 측에서 완전히 처리할 수 있으므로 새로운 ECMAScript 제안이 필요하지 않습니다(모듈 지정자가 어떻게 해석되는지에 대한 제어권이 호스트에게 있기 때문입니다). 그러나 웹에서는 [WebKit에서 반대 의견](https://github.com/whatwg/html/issues/1013#issuecomment-281863721)이 제시되었으며, TC39가 이 아이디어에 대해 일치된 의견을 가지지 않았기 때문에 WebKit의 반대 의견을 극복하기 위해 시도할 가치가 없다고 판단되었습니다. Node.js는 특히 `import.meta`가 필요에 따라 곧 사용할 수 없는 경우에도 이를 구현할 수 있습니다.
 
 ### 다른 방식으로 렉시컬 변수 소개하기
 
