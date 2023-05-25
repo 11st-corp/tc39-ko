@@ -35,15 +35,15 @@ Proposals 번역(Proposal-ko)은 tc39의 [Finished Proposals](https://github.com
 |23|_[String.prototype.{trimStart,trimEnd}]("#")_ | [String.prototype.{trimStart,trimEnd}](https://github.com/tc39/proposal-string-left-right-trim) | 김정호 | _
 |24|_[Array.prototype.{flat,flatMap}]("#")_ | [Array.prototype.{flat,flatMap}](https://github.com/tc39/proposal-flatMap) | 이호찬 | _
 |25|_[String.prototype.matchAll]("#")_ | [String.prototype.matchAll](https://github.com/tc39/proposal-string-matchall) | 박찬우 | _
-|26|_[import()]("#")_ | [import()](https://github.com/tc39/proposal-dynamic-import) | 권혁주 | _
-|27|_[BigInt]("#")_ | [BigInt](https://github.com/tc39/proposal-bigint) | 김다미 | _
-|28|_[Promise.allSettled]("#")_ | [Promise.allSettled](https://github.com/tc39/proposal-promise-allSettled) | 이호찬 | _
-|29|_[globalThis]("#")_ | [globalThis](https://github.com/tc39/proposal-global) | 박찬우 | _
-|30|_[for-in mechanics]("#")_ | [for-in mechanics](https://github.com/tc39/proposal-for-in-order) | 권혁주 | 23.05.25
-|31|_[Optional Chaining]("#")_ | [Optional Chaining](https://github.com/tc39/proposal-optional-chaining) | 김다미 | 23.05.25
-|32|_[Nullish coalescing Operator]("#")_ | [Nullish coalescing Operator](https://github.com/tc39/proposal-nullish-coalescing) | 김정호 | 23.05.25
-|33|_[import.meta]("#")_ | [import.meta](https://github.com/tc39/proposal-import-meta) | 이호찬 | 23.05.25
-|34|_[String.prototype.replaceAll]("#")_ | [String.prototype.replaceAll](https://github.com/tc39/proposals/blob/main/finished-proposals.md) | 박찬우 | 23.05.25
+|26|_[import()]("#")_ | [import()](https://github.com/tc39/proposal-dynamic-import) | 권혁주 | 23.05.25
+|27|_[BigInt]("#")_ | [BigInt](https://github.com/tc39/proposal-bigint) | 김다미 | 23.05.25
+|28|_[Promise.allSettled]("#")_ | [Promise.allSettled](https://github.com/tc39/proposal-promise-allSettled) | 이호찬 | 23.05.25
+|29|_[globalThis]("#")_ | [globalThis](https://github.com/tc39/proposal-global) | 박찬우 | 23.05.25
+|30|_[for-in mechanics]("#")_ | [for-in mechanics](https://github.com/tc39/proposal-for-in-order) | 권혁주 | 23.06.01
+|31|_[Optional Chaining]("#")_ | [Optional Chaining](https://github.com/tc39/proposal-optional-chaining) | 김다미 | 23.06.01
+|32|_[Nullish coalescing Operator]("#")_ | [Nullish coalescing Operator](https://github.com/tc39/proposal-nullish-coalescing) | 김정호 | 23.06.01
+|33|_[import.meta]("#")_ | [import.meta](https://github.com/tc39/proposal-import-meta) | 이호찬 | 23.06.01
+|34|_[String.prototype.replaceAll]("#")_ | [String.prototype.replaceAll](https://github.com/tc39/proposals/blob/main/finished-proposals.md) | 박찬우 | 23.06.01
 |35|_[Promise.any]("#")_ | [Promise.any](https://github.com/tc39/proposal-promise-any) | 권혁주 | _
 |36|_[WeakRefs]("#")_ | [WeakRefs](https://github.com/tc39/proposal-weakrefs) | 김다미 | _
 |37|_[Logical Assignment Operators]("#")_ | [Logical Assignment Operators](https://github.com/tc39/proposal-logical-assignment) | 김정호 | _
