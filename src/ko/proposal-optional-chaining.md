@@ -1,7 +1,7 @@
 # 자바스크립트를 위한 옵셔널 체이닝
 
 ## 상태 
-[ECMAScript 제안]() 과정 4단계
+[ECMAScript 제안](https://github.com/tc39/proposals) 과정 4단계
 
 ## 작성자 
 - Claude Pache (github)
