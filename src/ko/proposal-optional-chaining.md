@@ -24,7 +24,7 @@ var fooValue = fooInput ? fooInput.value : undefined
 var street = user.address?.street
 var fooValue = myForm.querySelector('input[name=foo]')?.value
 ```
-누락된 사례에 대해 정의되지 않은 값이 아닌 다른 값이 필요한 경우 일반적으로 Nullish 병합 연산자를 사용하여 처리할 수 있습니다.
+누락된 사례에 대해 `undefined`가 아닌 다른 값이 필요한 경우 일반적으로 Nullish 병합 연산자를 사용하여 처리할 수 있습니다.
 ```js
 // response.settings가 없거나 null이면 기본값으로 돌아갑니다.
 // (response.settings == null) 또는 response.settings.animationDuration이 누락된 경우
@@ -77,7 +77,7 @@ func?.(...args) // optional function or method call
 
 ## 의미론
 ### 기본 케이스
-`?.`의 왼쪽에 피연산자가 있는 경우. 연산자는 정의되지 않음 또는 `null`로 평가되고 표현식은 `undefined`으로 평가됩니다. 그렇지 않으면 대상 속성 액세스, 메서드 또는 함수 호출이 정상적으로 트리거됩니다.
+`?.`의 왼쪽에 피연산자가 있는 경우. 연산자는 `undefined` 또는 `null`로 평가되고 표현식은 `undefined`으로 평가됩니다. 그렇지 않으면 대상 속성 액세스, 메서드 또는 함수 호출이 정상적으로 트리거됩니다.
 
 다음은 각각의 디슈가링이 뒤따르는 기본적인 예입니다. (디슈가링은 LHS가 한 번만 평가되어야 하고 `document.all`이 객체로 동작해야 한다는 점에서 정확하지 않습니다.)
 ```js
@@ -96,7 +96,7 @@ a == null ? undefined : a()  // throws a TypeError if `a` is neither null/undefi
                              // invokes the function `a` otherwise
 ```
 
-### Short-circuiting
+### 단락 평가
 `?.`의 LHS에 대한 표현이 `null`/`undefined`로 평가되면 RHS는 평가되지 않습니다. 이 개념을 short-circuiting이라고 합니다.
 
 ```js
@@ -104,8 +104,8 @@ a?.[++x]         // `x` is incremented if and only if `a` is not null/undefi
 a == null ? undefined : a[++x]
 ```
 
-### Long short-circuiting
-실제로 short-circuiting이 트리거되면 현재 속성 액세스, 메서드 또는 함수 호출뿐만 아니라 옵셔널 체이닝 연산자 바로 다음에 오는 속성 액세스, 메서드 또는 함수 호출의 전체 체인도 건너뜁니다.
+### 긴 단축 평가
+실제로 단축 평가가 트리거되면 현재 속성 액세스, 메서드 또는 함수 호출뿐만 아니라 옵셔널 체이닝 연산자 바로 다음에 오는 속성 액세스, 메서드 또는 함수 호출의 전체 체인도 건너뜁니다.
 
 ```js
 a?.b.c(++x).d  // if `a` is null/undefined, evaluates to undefined. Variable `x` is not incremented.
@@ -128,7 +128,7 @@ a == null ? undefined : a.b[3].c == null ? undefined : a.b[3].c(x).d
 ```
 
 ### 엣지 케이스: 그룹핑
-괄호는 short-circuiting의 범위를 제한합니다.
+괄호는 단축 평가의 범위를 제한합니다.
 ```js
 (a?.b).c)
 (a == null ? undefined : a.b).c
@@ -220,7 +220,7 @@ a == null ? true : delete a.b
 
 마지막으로 선택적 연결은 오류 억제 메커니즘이 아님을 기억하십시오.
 
-**긴 Short-circuiting을 원하는 이유는 무엇입니까?**
+**긴 단축 평가를 원하는 이유는 무엇입니까?**
 [이슈 3번의 주석](https://github.com/tc39/proposal-optional-chaining/issues/3#issuecomment-306791812)을 참조하십시오.
 
 **`a?.b.c`에서 `a.b`가 `null`이면 `a.b.c`는 `undefined`으로 평가됩니다. 맞습니까?**
