@@ -292,7 +292,7 @@ Number(151851850485185185047n)
 많은 플랫폼에서 [웹 암호화](https://w3c.github.io/webcrypto/) 또는 [노드 암호화](https://nodejs.org/dist/latest/docs/api/crypto.html)와 같은 암호화를 기본적으로 지원합니다.
 
 ### 기타 예외
-분수 값을 `BigInt`로 변환하려고 하면 값이 `Number`와 `String`로 표시되는 경우 모두 예외가 발생합니다.
+분수 값을 `BigInt`로 변환하려고 하면 값이 `Number`와 `String`으로 표시되는 경우 모두 예외가 발생합니다.
 ```js
 BigInt(1.5)
 // ↪ RangeError: The number 1.5 is not a safe integer and thus cannot be converted to a BigInt
