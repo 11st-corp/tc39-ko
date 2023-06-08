@@ -27,7 +27,7 @@ arr3.flat(Infinity);
 
 ### 배열이 아닌 객체에서 flat() 호출
 
-flat 메서드는 `this`의 `length` 속성을 읽고, 각 정수 인덱스에 접근한다. 요소가 배열이 아닌 경우 결과에 직접 추가됩니다.
+flat 메서드는 `this`의 `length` 속성을 읽고, 각 정수 인덱스에 접근합니다. 요소가 배열이 아닌 경우 결과에 직접 추가됩니다.
 
 ```js
 const arrayLike = {
