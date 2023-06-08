@@ -4,4 +4,4 @@ ECMAScript에 `Array.prototype.flat`(이전 명칭은 [`Array.prototype.flatten`
 
 ## 상태
 
-본 제안서는 TC39 과정의 4단계에 있습니다.
+본 제안서는 [TC39 과정](https://tc39.es/process-document/)의 4단계에 있습니다.
