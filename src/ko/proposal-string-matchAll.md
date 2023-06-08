@@ -5,7 +5,7 @@
 [npm의 string.prototype.matchall](https://www.npmjs.com/package/string.prototype.matchall) 이나, [github](https://github.com/ljharb/String.prototype.matchAll) 을 확인하세요.
 
 ## 명세서
-[markdown](spec.md) 형식이나 [HTML](https://tc39.github.io/proposal-string-matchall/) 형식으로 명세서를 보실 수 있습니다.
+명세서를 [마크다운 형식](https://github.com/tc39/proposal-string-matchall/blob/main/spec.md) 으로 보거나 [HTML](https://tc39.github.io/proposal-string-matchall/) 로 렌더링할 수 있습니다.
 
 ## 이론적 근거
 내가 특정 문자열과 여러개의 캡쳐링 그룹들을 가진 `sticky` / `global` 접근자 속성의 정규식을 가지고 있다면, 모든 매치된 결과를 반복하고 있을 때가 많습니다. 현재, 저는 아래의 방식으로 구현합니다.
