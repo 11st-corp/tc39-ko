@@ -218,7 +218,7 @@ view[0];
 
 ## Gotchas & 예외
 
-### `Number` 및 `String`과의 상호 작용
+### `Number` 및 `String`과의 상호운용성
 가장 놀라운 것은 `BigInt`가 `Number`와 호환되지 않는다는 것입니다. 대신 `TypeError`(유형 오류)가 발생합니다. ([이 결정이 내려진 이유에 대한 자세한 내용은 설계 철학을 참조하십시오.](https://github.com/tc39/proposal-bigint#design-goals-or-why-is-this-like-this))
 ```js
 
