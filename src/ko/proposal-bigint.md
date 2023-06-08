@@ -26,7 +26,7 @@ Brendan Eich, Waldemar Horwat, Jaro Sevcik, Benedikt Meurer, Michael Saboff, Ada
 
 
 ## 1. 무엇인가요?
-`BigInt`는 2<sup>53</sup>보다 큰 정수를 나타내는 방법을 제공하는 새로운 원시값으로, JavaScript가 `Number` 원시 안정적으로 나타낼 수 있는 가장 큰 숫자입니다.
+`BigInt`는 JavaScript의 `Number` 원시 값으로 신뢰할 수 있는 범위 내에서 표현할 수 있는 가장 큰 숫자인 2<sup>53</sup>보다 큰 정수를 나타내는 방법을 제공하는 새로운 원시 값입니다.
 ```js
 const x = Number.MAX_SAFE_INTEGER;
 // ↪ 9007199254740991, this is 1 less than 2^53
