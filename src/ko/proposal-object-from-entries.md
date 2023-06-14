@@ -1,7 +1,7 @@
 # Object.fromEntries
 본 제안서가 4단계이기 때문에 이 저장소는 현재 보관되었습니다.
 
-ECMAScript의 새로운 정적 메소드 `Object.fromEntries`에 대한 제안으로, 키-값 쌍의 목록을 객체로 변환하는 기능을 제공합니다.
+ECMAScript의 새로운 정적 메서드 `Object.fromEntries`에 대한 제안으로, 키-값 쌍의 목록을 객체로 변환하는 기능을 제공합니다.
 
 이 제안은 기존에 [Darien Maillet Valentine](https://github.com/bathos)에 의해 작성되었고 [Jordan Harband](https://github.com/ljharb)와 [Kevin Gibbons](https://github.com/bakkot)에 의해 옹호되고 있습니다.
 
