@@ -121,5 +121,5 @@ function importModule(url) {
 
 로더 명세서의 아이디어는 크게 변경되지 않을 것이지만, 아마도 현재의 `System.loader.import()`제안을 대체하거나 특정 상황에서 사용되는 하위 수준 버전으로 만들 수도 있습니다. 로더 명세서는 플러그 가능한 로딩 파이프라인과 반사적인 모듈에 대한 보다 일반적인 아이디어를 프로토타이핑하는 작업을 계속할 것입니다. 이는 시간이 지나면 HTML 및 Node의 호스트별 파이프라인을 일반화하는 데 사용될 수 있습니다.
 
-구체적으로 이 저장소는 `import()` 구문과 관련된 호스트 환경 훅을 지정하여 단계별 프로세스를 통해 TC39 제안으로 전진하기 위해 사용됩니다. 또한 이 제안과 통합될 수 있는 [HTML 표준에 대한 제안 변경 사항 개요](https://github.com/tc39/proposal-dynamic-import/blob/main/HTML%20Integration.md)가 포함되어 있습니다.
+구체적으로 이 저장소는 `import()` 구문과 관련된 호스트 환경 훅을 지정하여 단계별 프로세스를 진행하기 위한 TC39 제안으로 사용됩니다. 또한 이 제안과 통합될 수 있는 [HTML 표준에 대한 제안 변경 사항 개요](https://github.com/tc39/proposal-dynamic-import/blob/main/HTML%20Integration.md)가 포함되어 있습니다.
 
