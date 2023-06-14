@@ -1,5 +1,5 @@
 # import()
-이 저장소는 JavaScript에 "함수 형태"의 `import()` 모듈 로딩 구문을 추가하기 위한 제안을 포함하고 있습니다. 현재 이 제안은 [TC39 프로세스](https://tc39.es/process-document/) 4단계에 있습니다. 이전에는 [whatwg/loader#149](https://github.com/whatwg/loader/issues/149)에서 모듈 로딩 커뮤니티와 토의되었습니다.
+이 저장소는 JavaScript에 "유사 함수"의 `import()` 모듈 로딩 구문을 추가하기 위한 제안을 포함하고 있습니다. 현재 이 제안은 [TC39 프로세스](https://tc39.es/process-document/) 4단계에 있습니다. 이전에는 [whatwg/loader#149](https://github.com/whatwg/loader/issues/149)에서 모듈 로딩 커뮤니티와 토의되었습니다.
 
 진행 중인 [사양 초안](https://tc39.es/proposal-dynamic-import/)을 확인하고 [이슈 트래커](https://github.com/tc39/proposal-dynamic-import/issues)에서 토론에 참여할 수 있습니다.
 
