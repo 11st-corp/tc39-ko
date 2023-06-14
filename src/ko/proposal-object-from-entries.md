@@ -25,7 +25,7 @@ obj = Object.fromEntries([['a', 0], ['b', 1]]); // { a: 0, b: 1 }
 자세한 내용은 [DETAILS.md](https://github.com/tc39/proposal-object-from-entries/blob/main/DETAILS.md)를 참조하세요.
 
 ## 이론적 근거
-다양한 구조(배열, 맵 등등)에 저장된 데이터를 한 형태에서 다른 형태로 변환하는 것은 흔한 일입니다. 데이터 구조가 모두 반복 가능한 객체인 경우 이는 일반적으로 간단하게 처리됩니다.
+다양한 구조(배열, 맵 등)에 저장된 데이터를 한 형태에서 다른 형태로 변환하는 것은 흔한 일입니다. 데이터 구조가 모두 반복 가능한 객체인 경우 이는 일반적으로 간단하게 처리됩니다.
 
 ```js
 map = new Map().set('foo', true).set('bar', false);
