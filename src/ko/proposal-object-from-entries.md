@@ -102,7 +102,7 @@ obj = Object.fromEntries(arr.map(({ name, age }) => [ name, age ]));
 Underscore와 Lodash는 키-값 쌍의 목록에서 객체를 구성하는 [`_.fromPairs`](https://lodash.com/docs/4.17.15#fromPairs) 함수를 제공합니다.
 
 ### Python
-Python에서는, 배열 형태의 키-값 튜플로 `dict`를 초기화할 수 있습니다.
+Python에서는, [배열 형태의 키-값 튜플](https://docs.python.org/3/library/stdtypes.html#dict)로 `dict`를 초기화할 수 있습니다.
 ```python
 dict([('two', 2), ('one', 1), ('three', 3)])
 ```
