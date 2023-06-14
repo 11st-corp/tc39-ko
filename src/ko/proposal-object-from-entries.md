@@ -40,7 +40,7 @@ obj = { foo: true, bar: false };
 map = new Map(Object.entries(obj));
 ```
 
-그러나 키-값 쌍으로부터 객체를 구성하기 위한 Object.entries의 역은 존재하지 않기 때문에 보통 헬퍼 함수나 인라인 리듀서를 사용해야 합니다.
+그러나 키-값 쌍으로부터 객체를 구성하기 위한 `Object.entries`의 역은 존재하지 않기 때문에 보통 헬퍼 함수나 인라인 리듀서를 사용해야 합니다.
 
 ```js
 obj = Array.from(map).reduce((acc, [ key, val ]) => Object.assign(acc, { [key]: val }), {});
