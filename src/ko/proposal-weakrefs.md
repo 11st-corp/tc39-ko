@@ -198,7 +198,7 @@ function allocate(allocator) {
 
 때때로 `WeakRef`와 `FinalizationRegistry`를 함께 사용하는 것이 좋습니다. 약하게 값을 가리키고 해당 값이 사라질 때 어떤 종류의 정리를 수행하려는 여러 종류의 데이터 구조가 있습니다. 그러나 약한 참조는 객체가 수집될 때 지워지지만 관련 `FinalizationRegistry` 정리 처리기는 이후 작업에서만 실행됩니다. 동일한 객체에서 약한 참조 및 종료자를 사용하는 프로그래밍 관용구는 간격을 염두에 두어야 합니다.
 
-## 약한 캐시
+### 약한 캐시
 
 이 README의 초기 예제에서 `makeWeakCached`는 값이 `WeakRef`인스턴스로 래핑된 `Map`을 사용했습니다. 이를 통해 캐시된 값을 수집할 수 있었지만 `Map`의 항목 형식으로 메모리가 누수되었습니다. `makeWeakCached`의 보다 완전한 버전은 파이널라이저를 사용하여 이 메모리 누수를 해결합니다.
 
@@ -235,7 +235,7 @@ var getImageCached = makeWeakCached(getImage);
 파이널라이저는 "메인" 프로그램과 정리 콜백 사이에 동시성을 도입합니다. 취약한 캐시 정리 기능은 활성 항목이 삭제되지 않도록 "메인" 프로그램이 캐시된 값이 수집된 시간과 정리 기능이 실행되는 시간 사이에 항목을 맵에 다시 추가했는지 확인해야 합니다. 마찬가지로 참조 맵에서 키를 조회할 때 값이 수집되었지만 정리 콜백이 아직 실행되지 않았을 가능성이 있습니다.
 파이널라이저는 놀라운 방식으로 작동할 수 있으므로 위의 `makeWeakCached`와 같이 오용을 방지하는 신중한 추상화 뒤에 배치하는 것이 가장 좋습니다. 코드 기반 전체에 퍼져 있는 `FinalizationRegistry`의 풍부한 사용은 코드 냄새입니다.
 
-## 반복 가능한 WeakMap
+### 반복 가능한 WeakMap
 
 특정 고급 사례에서 `WeakRef` 객체와 `FinalizationRegistry` 객체는 매우 효과적인 보완물이 될 수 있습니다. 예를 들어 WeakMaps에는 반복하거나 지울 수 없다는 제한이 있습니다. WeakRefs 제안은 "반복 가능 + 삭제 가능 WeakMap" 생성을 가능하게 합니다.
 
@@ -355,7 +355,7 @@ for (const key of map.keys()) {
 
 이 반복 가능한 WeakMap과 같은 강력한 구조를 사용할 때는 주의해야 합니다. 이와 유사한 의미론으로 설계된 웹 API는 레거시 실수로 널리 간주됩니다. 애플리케이션에서 가비지 컬렉션 타이밍을 노출하지 않고 다른 방법으로 문제를 합리적으로 해결할 수 없는 경우에만 약한 참조 및 파이널라이저를 사용하는 것이 가장 좋습니다.
 
-### WeakMaps는 기본으로 남아 있습니다.
+#### WeakMaps는 기본으로 남아 있습니다.
 
 단순히 `WeakRef` 객체가 있는 `Map`을 키로 사용하여 `WeakMap`을 재생성하는 것은 불가능합니다. 이러한 맵의 값이 해당 키를 참조하는 경우 항목을 수집할 수 없습니다. 실제 `WeakMap` 구현은 가비지 컬렉터가 이러한 주기를 처리할 수 있도록 [ephemeron](http://www.jucs.org/jucs_14_21/eliminating_cycles_in_weak/jucs_14_21_3481_3497_barros.pdf)을 사용합니다.
 이것이 [`IterableWeakMap` 예제](https://github.com/tc39/proposal-weakrefs/tree/master#iterable-weakmaps)가 `WeakMap`에 값을 유지하고 반복을 위해 `WeakRef`만 `Set`에 넣는 이유입니다. 값이 대신 `this.#refMap.set(ref, value)`와 같은 `Map`에 추가된 경우 다음이 누출되었을 수 있습니다.
@@ -365,7 +365,7 @@ let key = { foo: "bar" };
 const map = new IterableWeakMap(key, { data: 123, key });
 ```
 
-## 종료자 예약 및 여러 `.deref()` 호출의 일관성
+### 종료자 예약 및 여러 `.deref()` 호출의 일관성
 
 구현에서 종료 콜백을 나중에 호출하거나 전혀 호출하지 않을 수 있는 몇 가지 조건이 있습니다. WeakRefs 제안은 호스트 환경(예: HTML, Node.js)과 함께 작동하여 `FinalizationRegistry` 콜백이 예약되는 방식을 정확하게 정의합니다. 그 의도는 가비지 컬렉션의 관찰 가능성의 세분성을 거칠게 만들어 프로그램이 특정 구현의 세부 사항에 너무 밀접하게 의존할 가능성을 줄이는 것입니다.
 
