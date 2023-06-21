@@ -70,7 +70,7 @@ HTML에서 전역객체는 `Window`와 `WindowProxy`로 구별됩니다. 새로�
  </script>  
 ```  
 
-[이 데모](https://bead-pancake.glitch.me/)는 실제 전역객체 내에 네비게이션 동안 변경된 전역변수 `foo`가 저장되어있는 것을 보여줍니다. 하지만 `globalThis`는 네비게이션 동안 변경되지 않았습니다. 그러므로 `globalThis`는 전역객체가 아닙니다.
+[이 데모](https://bead-pancake.glitch.me/)는 실제 전역객체 내에 탐색 중에 변경된 전역변수 `foo`가 저장되어있는 것을 보여줍니다. 하지만 `globalThis`는 탐색 중에 변경되지 않았습니다. 그러므로 `globalThis`는 전역객체가 아닙니다.
 
 따라서, `globalThis`는 JavaScript에서 직접적으로 접근할 수 없는 "전역객체"와 명백하게 다릅니다. [웹 브라우저에서는 `foo !== globalThis.foo`가 가능할 수도 있습니다.(전역 범위에서)](https://concise-walker.glitch.me/)
 
