@@ -17,7 +17,7 @@ function foo() {
 }
 ```  
 
-추가적으로, `es6-shim` 은 [CSP 논의](https://github.com/paulmillr/es6-shim/issues/301)로 인해 `Function('return this')()`에서부터 변경이 필요하였습니다. 현재 브라우저들, node, 웹 워커들, 프레임들을 관리하기 위한  [변경점](https://github.com/paulmillr/es6-shim/commit/2367e0953edd01ae9a5628e1f47cf14b0377a7d6)은 아래와 같습니다.
+추가적으로, `es6-shim` 은 [CSP 논의](https://github.com/paulmillr/es6-shim/issues/301)로 인해 `Function('return this')()`에서부터 변경이 필요하였습니다. 브라우저들, node, 웹 워커들, 프레임들을 처리하기 위한 현재 [검사](https://github.com/paulmillr/es6-shim/commit/2367e0953edd01ae9a5628e1f47cf14b0377a7d6)는 아래와 같습니다.
 ```js  
 var getGlobal = function () {  
 	// 전역객체에 접근할 수 있는 방법은`Function('return this')()`하나입니다.
