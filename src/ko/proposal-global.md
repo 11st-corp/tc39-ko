@@ -74,7 +74,7 @@ HTML에서 전역객체는 `Window`와 `WindowProxy`로 구별됩니다. 새로�
 
 따라서, `globalThis`는 JavaScript에서 직접적으로 접근할 수 없는 "전역 객체"와 명백하게 다릅니다. [웹 브라우저에서는 (심지어 전역 범위에서도) `foo !== globalThis.foo`가 가능할 수도 있습니다.](https://concise-walker.glitch.me/)
 
-ES6/ES2015는 `Window`/`WindowProxy` 구조를 설명하지 않으며, 단순히 "전역객체"라고 말하고 있습니다. 이 명세는 동일합니다. 만약 ECMAScript에서 top-level `this`가 `WindowProxy`로 설명되도록 명세가 변경된다면, 이러한 변경점은 해당 제안서에도 동일하게 반영되어야합니다.
+ES6/ES2015는 `Window`/`WindowProxy` 구조를 설명하지 않으며, 단순히 "전역객체"라고 말하고 있습니다. 이 명세는 동일합니다. 만약 ECMAScript에서 top-level `this`가 `WindowProxy`로 설명되도록 명세가 변경된다면, 이러한 변경점은 해당 제안서에도 동일하게 반영되어야 합니다.
 
 ## SES interaction
 
