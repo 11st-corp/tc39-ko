@@ -45,7 +45,8 @@ HTML에서 전역객체는 `Window`와 `WindowProxy`로 구별됩니다. 새로�
 아래의 코드는 `frame-b.html`입니다.
 ```html  
 <script>  
- globalThis.getGlobalThis = () => globalThis;</script>  
+ globalThis.getGlobalThis = () => globalThis;
+ </script>  
 ```  
 
 아래의 코드는 `parent.html`’입니다.
