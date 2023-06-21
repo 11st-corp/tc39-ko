@@ -30,7 +30,7 @@ var getGlobal = function () {
 
 ## HTML 과  `WindowProxy`
 
-HTML에서 전역객체는 `Window`와 `WindowProxy`로 구별됩니다. 새로운 속성은 `Window`에 선언되지만, 상위 단계인 `this`는 `WindowProxy`와 동일합니다. `WindowProxy`는 모든 객체 연산을 `Window`로 전달하지만, 페이지가 변경되면 `globalThis`는 유지되는 반면,  `Windows`는 갱신됩니다.
+HTML에서 전역객체는 `Window`와 `WindowProxy`로 구별됩니다. 새로운 속성은 `Window`에 선언되지만, 상위 단계인 `this`는 `WindowProxy`와 동일합니다. `WindowProxy`는 모든 객체 연산을 `Window`로 전달하지만, 페이지가 변경되면 `globalThis`는 유지되는 반면,  `Window`는 갱신됩니다.
 
 이러한 구분은 아래의 `parent.html`, `frame-a.html`,  `frame-b.html`,파일들로 구성된 시나리오에서 확인할 수 있습니다.
 
