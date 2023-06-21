@@ -78,7 +78,6 @@ ES6/ES2015는 `Window`/`WindowProxy` 구조를 설명하지 않으며, 단순히
 
 ## SES interaction
 
-For Secure ECMAScript, it is important that all references to the global object be spoof-able and capable of being locked down, so that each context gets its own shadow global context. Additionally, references to the global object should not be reachable from other ECMAScript intrinsic objects, which SES would like to simply recursively freeze. In this proposal, `globalThis` is a writable and configurable property of the global object, so it should meet SES requirements.
 
 Secure ECMAScript에서는 전역객체에 대한 모든 참조가 스푸닝 가능하며, 잠길 수 있기 때문에 각 컨테스트가 숨겨진 전역 컨텍스트를 가질 수 있도록 하는 것이 중요합니다. 추가적으로, 전역객체에 대한 참조는 SES가 단순히 재귀적으로 동결하기를 원하는 다른 ECMAScript의 독립된 객체들에서 접근이 불가능해야합니다. 이 제안서에서 `globalThis`는 전역 객체의 쓰기 및 수정 가능한 속성입니다. 그러므로 이 것은 SES의 요구사항을 만족합니다.
 
