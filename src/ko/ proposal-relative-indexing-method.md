@@ -28,7 +28,7 @@
 
 이 문제를 해결하려는 많은 시도가 있었습니다. 가장 최근의 제안은 `.last` 속성을 통해 배열의 마지막 요소(<https://github.com/tc39/proposal-array-last>)에 쉽게 접근할 수 있도록 하는 제한된 제안입니다.
 
-대신 이 제안은 보다 일반적인 접근 방식을 채택하고 배열, 문자열 및 TypedArray에 `.at()` 메서드를 추가할 것을 제안합니다. 이 메서드는 위에서 설명한 음수 의미 체계를 사용하여 정수 값을 취하고 해당 색인에 있는 항목을 반환합니다. 
+대신 본 제안서는 보다 일반적인 접근 방식을 채택하고 배열, 문자열 및 TypedArray에 `.at()` 메서드를 추가할 것을 제안합니다. 이 메서드는 위에서 설명한 음수 의미 체계를 사용하여 정수 값을 취하고 해당 색인에 있는 항목을 반환합니다. 
 
 이렇게 하면 오랜 요청을 쉽게 해결할 수 있을 뿐만 아니라 [아래에 설명된 다양한 DOM API](#dom-정당성)에 대한 별도의 문제도 해결됩니다.
 
@@ -77,7 +77,7 @@ for (const C of [Array, String, TypedArray]) {
 
 ## 구현
 
-- Spec-compliant polyfills using the old name of `.item()`: [Array.prototype.item](https://www.npmjs.com/package/array.prototype.item), [String.prototype.item](https://www.npmjs.com/package/string.prototype.item)
+- `.item()`의 오래된 이름을 사용하는 사양의 호환 폴리필: [Array.prototype.item](https://www.npmjs.com/package/array.prototype.item), [String.prototype.item](https://www.npmjs.com/package/string.prototype.item)
 
 ## 웹 비호환성 역사
 
