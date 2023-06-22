@@ -22,27 +22,27 @@
 
 ## 이론적 근거
 
-For many years, programmers have asked for the ability to do "negative indexing" of JS Arrays, like you can do with Python. That is, asking for the ability to write `arr[-1]` instead of `arr[arr.length-1]`, where negative numbers count backwards from the last element.
+수년 동안, 프로그래머들은 Python으로 할 수 있는 것처럼 JS 배열의 "음수 색인<sup>[1][]</sup>"을 수행할 수 있는 기능을 요청했습니다. 즉, `arr[arr.length-1]` 대신 `arr[-1]`을 쓸 수 있는 기능을 요청했습니다. 여기서 음수는 마지막 요소부터 거꾸로 계산됩니다.
 
-Unfortunately, JS's language design makes this impossible. The `[]` syntax is not specific to Arrays and Strings; it applies to all objects. Referring to a value by index, like `arr[1]`, actually just refers to the property of the object with the key "1", which is something that any object can have. So `arr[-1]` already "works" in today's code, but it returns the value of the "-1" property of the object, rather than returning an index counting back from the end.
+불행하게도 JS의 언어 설계는 이것을 불가능하게 만듭니다. `[]` 구문은 배열 및 문자열에만 국한되지 않습니다. 모든 객체에 적용됩니다. `arr[1]`과 같이 색인으로 값을 참조하는 것은 실제로 모든 객체가 가질 수 있는 키 "1"을 가진 객체의 속성을 참조할 뿐입니다. 따라서 `arr[-1]`은 현재의 코드에서 이미 "작동"하지만 끝에서 다시 세는 색인을 반환하는 대신 객체의 "-1" 속성 값을 반환합니다.
 
-There have been many attempts to work around this; the most recent is a restricted proposal to make it easier to access just the last element of an array (<https://github.com/tc39/proposal-array-last>) via a `.last` property.
+이 문제를 해결하려는 많은 시도가 있었습니다. 가장 최근의 제안은 `.last` 속성을 통해 배열의 마지막 요소(<https://github.com/tc39/proposal-array-last>)에 쉽게 접근할 수 있도록 하는 제한된 제안입니다.
 
-This proposal instead adopts a more common approach, and suggests adding a `.at()` method to Array, String, and TypedArray, which takes an integer value and returns the item at that index, with the negative-number semantics as described above.
+대신 이 제안은 보다 일반적인 접근 방식을 채택하고 배열, 문자열 및 TypedArray에 `.at()` 메서드를 추가할 것을 제안합니다. 이 메서드는 위에서 설명한 음수 의미 체계를 사용하여 정수 값을 취하고 해당 색인에 있는 항목을 반환합니다. 
 
-This not only solves the long-standing request in an easy way, but also happens to solve a separate issue for [various DOM APIs, described below](#dom-justifications).
+이렇게 하면 오랜 요청을 쉽게 해결할 수 있을 뿐만 아니라 [아래에 설명된 다양한 DOM API](#dom-정당성)에 대한 별도의 문제도 해결됩니다.
 
 ### 기존 메서드
 
-Currently, to access a value from the end of an indexable object, the common practice is to write `arr[arr.length - N]`, where N is the Nth item from the end (starting at 1). This requires naming the indexable twice, additionally adds 7 more characters for the `.length`, and is hostile to anonymous values; you can't use this technique to grab the last item of the return value of a function unless you first store it in a temp variable.
+현재 색인 가능한 객체의 끝에서 값에 접근하려면, 일반적으로 `arr[arr.length - N]`을 작성합니다. 여기서 N은 끝에서 N번째 항목(1에서 시작)입니다. 이렇게 하려면 색인 가능 항목의 이름을 두 번 지정해야 하고, `.length`에 추가로 7자를 더 추가해야 하며, 익명 값에 적대적입니다. 먼저 임시 변수에 저장하지 않는 한 이 기술을 사용하여 함수 반환 값의 마지막 항목을 가져올 수 없습니다.
 
-Another method that avoids some of those drawbacks, but has some performance drawbacks of its own, is `arr.slice(-N)[0]`. This avoids repeating the name, and thus is friendly to anonymous values as well. However, the spelling is a little weird, particularly the trailing `[0]` (since `.slice()` returns an Array). Also, a temporary array is created with all the contents of the source from the desired item to the end, only to be immediately thrown away after retrieving the first item.
+이러한 단점 중 일부를 피하지만, 자체 성능 단점이 있는 또 다른 방법은 `arr.slice(-N)[0]`입니다. 이렇게 하면 이름이 반복되지 않으므로 익명 값에도 친숙합니다. 그러나 철자가 약간 이상한데, 특히, 뒤에 오는 `[0]`( `.slice()`는 배열을 반환하므로)가 이상합니다. 또한 원하는 항목부터 끝까지 소스의 모든 내용으로 임시 배열이 생성되며, 첫 번째 항목을 검색한 후 즉시 버려집니다.
 
-Note, however, the fact that `.slice()` (and related methods like `.splice()`) already have the notion of negative indexes, and resolve them exactly as desired.
+그러나 `.slice()`(및 `.splice()`와 같은 관련 메서드)에는 이미 음수 색인 개념이 있으며, 원하는 대로 정확하게 해결한다는 사실에 유의하십시오.
 
 ## 가능한 문제
 
-`.at()` might also be web incompatible for reasons yet unknown.
+`.at()`는 아직 알려지지 않은 이유로 웹과 호환되지 않을 수도 있습니다.
 
 ## 제안된 수정 사항
 
@@ -50,7 +50,7 @@ Note, however, the fact that `.slice()` (and related methods like `.splice()`) a
 
 ## 폴리필
 
-(Rough polyfill; correctly implements the behavior for well-behaved objects, but not guaranteed to match spec behavior precisely for edge cases, like calling the method on `undefined`.)
+(거친 폴리필; 올바르게 동작하는 객체에 대한 동작을 올바르게 구현하지만, `undefined`에서 메서드를 호출하는 것과 같은 엣지 케이스에 대한 사양 동작과 정확하게 일치한다고 보장되지 않습니다.)
 
 ```js
 function at(n) {
@@ -81,80 +81,88 @@ for (const C of [Array, String, TypedArray]) {
 
 ## 웹 비호환성 역사
 
-The original iteration of this proposal proposed the name of the method to be `.item()`. Unfortunately, this was found out to be not web compatible. Libraries, notably YUI2 and YUI3, were duck-typing objects to be DOM collections based on the presence of a `.item` property. Please see [#28](https://github.com/tc39/proposal-relative-indexing-method/issues/28), [#31](https://github.com/tc39/proposal-relative-indexing-method/issues/31), and [#32](https://github.com/tc39/proposal-relative-indexing-method/issues/32) for more details.
+본 제안서의 원본은 메서드의 이름을 `.item()`으로 제안했습니다. 불행히도 이것은 웹과 호환되지 않는 것으로 밝혀졌습니다. 특히 YUI2 및 YUI3와 같은 라이브러리는 `.item` 속성의 존재를 기반으로 DOM 컬렉션이 되는 덕타이핑 객체였습니다. [#28](https://github.com/tc39/proposal-relative-indexing-method/issues/28), [#31](https://github.com/tc39/proposal-relative-indexing-method/issues/31)을 참조하고, [#32](https://github.com/tc39/proposal-relative-indexing-method/issues/32)에서 자세한 내용을 확인하세요.
 
-Captured below is the original motivation for choosing the `.item()` name and the original concerns.
+아래는 `.item()` 이름을 선택한 최초의 동기와 최초의 고민입니다.
 
 ### DOM 정당성
 
-A recent addition to the WebIDL spec is `ObservableArray<>` (thanks @domenic!), a proxy over an Array that allows web APIs to expose something that to page authors looks exactly like an Array, but still allows the browser to intercept get/set/delete/etc of indexed properties, enforcing type checks and other requirements exactly like they do today with named properties.
+WebIDL 사양에 최근 추가된 항목은 `ObservableArray<>`(@domenic에게 감사합니다!)입니다. 이 프록시는 웹 API가 페이지 작성자에게 정확히 배열처럼 보이는 것을 노출할 수 있도록 허용하지만, 여전히 브라우저가 색인된 속성의 get/set/delete/등을 가로챌 수 있으므로 현재 이름이 지정된 속성에서 수행하는 것과 똑같은 방식으로 유형 검사 및 기타 요구 사항을 적용할 수 있습니다.
 
-We plan to start using this for most APIs that want to expose a list of something, but we'd also like to, when possible, upgrade _older_ APIs to use this as well; the fact that many older APIs use bespoke interfaces that badly and incompletely copy the Array interface is a consistent source of frustration for web authors.
+우리는 무엇인가의 목록을 노출하려는 대부분의 API에 이것을 사용할 계획이지만, 가능하면 이것을 사용하도록 **오래된** API를 갱신하고 싶습니다. 많은 오래된 API가 배열의 인터페이스를 나쁘고 불완전하게 복사한 맞춤형 인터페이스를 사용한다는 사실은 웹 작성자에게 일관된 불만의 원인입니다.
 
-(For example, `document.querySelectorAll()` returns, not an Array, but a NodeList, which supports indexed properties and `.length`, and so can be treated as an Array in basic ways, but has only a tiny selection of the Array prototype methods. Popular methods like `.map()` are missing, requiring authors to write code like `[...document.querySelectorAll("a")].map(foo)`.)
+(예를 들어 `document.querySelectorAll()`은 배열이 아닌 색인 속성과 `.length`를 지원하는 NodeList를 반환하므로 기본적으로 배열로 처리할 수 있지만, 배열 프로토타입 메서드는 극히 일부만 선택할 수 있습니다. `.map()`과 같은 인기 있는 메서드가 누락되어, 작성자가 `[...document.querySelectorAll("a")].map(foo)`와 같은 코드를 작성해야 합니다.)
 
-This upgrade can _almost_ be done in-place, just swapping the various bespoke interfaces with ObservableArray, avoiding breaking anything that doesn't explicitly test the value's type. There is _one_ exception: all of them have a `.item()` method, which returns the value at the passed index.
+이 갱신은 값의 유형을 명시적으로 테스트하지 않는 것을 중단하지 않고, 다양한 맞춤형 인터페이스를 ObservableArray로 교체하여 **거의** 내부에서 수행할 수 있습니다. **하나의** 예외가 있습니다. 그것들 모두는 `.item()` 메서드를 가지고 있으며, 전달된 색인에서 값을 반환합니다.
 
-(This is a remnant of the very old (1990s-era) belief that Java was a reasonable language to use on the web, and so APIs were designed in a "lowest common denominator" style for use in both JS and Java. Java didn't have the ability to use indexed properties at the time unless you were actually a Java array, so the .item() method was a compromise that worked identically in both languages.)
+(이것은 Java가 웹에서 사용하기에 합리적인 언어라는 매우 오래된(1990년대) 믿음의 잔재이며, 따라서 API는 JS와 Java 모두에서 사용하기 위한 "최소 공통 분모" 방법으로 설계되었습니다. Java는 실제로 Java 배열이 아닌 한 당시 색인된 속성을 사용할 수 없었기 때문에, .item() 메서드는 두 언어에서 동일하게 작동하는 절충안이었습니다.)
 
-It's highly likely there is code that relies on using `.item()` on these interfaces, and we don't want to risk breakage there.
+이러한 인터페이스에서 `.item()` 사용에 의존하는 코드가 있을 가능성이 높으며, 여기서 깨지는 위험을 감수하고 싶지 않습니다.
 
-We _could_ address this by subclassing ObservableArray and adding `.item()` in the subclass. However, that would mean the values aren't of type Array; various type-checking methods in the community looking for an Array would fail.
+ObservableArray를 서브클래싱하고 서브클래스에 `.item()`을 추가하여 이 문제를 해결할 수 있습니다. 그러나 그렇게 하면 값이 배열 유형이 아니게 되어, 일반 사회에서 Array를 찾는 다양한 유형 검사 메서드가 실패할 수 있습니다.
 
-Or we could just add `.item()` to ObservableArray itself, as it's a proxy wrapper around Array. This would be confusing and weird however, making it appear that Array had such a method even tho it's not on the prototype.
+또는 ObservableArray 자체에 `.item()`을 단순히 추가할 수 있습니다. 이는 배열을 둘러싼 프록시 래퍼이기 때문입니다. 그러나 이것은 프로토타입에 없는 배열에도 이러한 메서드가 있는 것처럼 보이게 만들어 혼란스럽고 이상할 것입니다.
 
-The ideal solution for us, instead, is to add `.item()` to the Array prototype itself,
-and for completeness/consistency, to the other indexable types that support the same general suite of index-related properties like `.slice()`.
+대신 우리에게 이상적인 해결책은 `.item()`을 배열 프로토타입 자체에 추가하는 것입니다.
+그리고 완전성/일관성을 위해 `.slice()`와 같은 색인 관련 속성과 같은 종류를 지원하는 다른 색인 가능 유형에 대한 것입니다.
 
-As such, the name `.item()` is a requirement of this proposal; changing it to something else would still help authors, but would fail to satisfy the DOM needs.
+따라서 `.item()`이라는 이름은 본 제안서의 요구 사항입니다. 다른 것으로 변경하면 작성자에게 여전히 도움이 되지만 DOM 요구 사항을 충족하지 못합니다.
 
 #### 변환 가능한 인터페이스
 
-Assuming this proposal is adopted, the following legacy interfaces should be upgradable into ObservableArray:
+이 제안이 채택되었다고 가정하면 다음 레거시 인터페이스를 ObservableArray로 갱신할 수 있어야 합니다.
 
 - [NodeList](https://dom.spec.whatwg.org/#nodelist)
-- Possibly [DOMTokenList](https://dom.spec.whatwg.org/#domtokenlist) as a subclass
+- 하위 클래스로서 [DOMTokenList](https://dom.spec.whatwg.org/#domtokenlist)가 가능함
 - [CSSRuleList](https://drafts.csswg.org/cssom/#cssrulelist)
 - [StyleSheetList](https://drafts.csswg.org/cssom/#stylesheetlist)
-- Possibly [CSSStyleDeclaration](https://drafts.csswg.org/cssom/#cssstyledeclaration) and [MediaList](https://drafts.csswg.org/cssom/#medialist), as subclasses
+- 하위클래스로서 [CSSStyleDeclaration](https://drafts.csswg.org/cssom/#cssstyledeclaration) 와 [MediaList](https://drafts.csswg.org/cssom/#medialist)가 가능함
 - [FileList](https://w3c.github.io/FileAPI/#dfn-filelist)
 
-(maybe others, list is ongoing)
+(다른 것들도 있을 수 있으며, 목록은 계속될 수 있습니다.)
 
 ### 가능한 문제
 
-The obvious looming issue with this, as with any addition to the built-ins, is the possibility that the name `.item()` is already added to these classes' prototypes by a framework with an incompatible definition, and added using one of the fragile patterns that avoids clobbering built-in names, so that code depending on the framework's definition will then break when it's instead given the new built-in definition.
+이러한 내장 기능의 추가와 마찬가지로, 이에 대한 가장 분명한 문제는 `.item()`이라는 이름이 이미 이러한 클래스들의 프로토타입에 호환되지 않는 정의로 프레임워크에 의해 추가되고, 내장된 이름을 덮어쓰지 않고 구현된 취약한 패턴 중 하나를 사용하여 추가된 경우입니다. 따라서 해당 프레임워크의 정의에 의존하는 코드는 새로운 내장된 정의를 받았을 때 오류가 발생할 수 있습니다.
 
-I'm prepared to eat my words, but I suspect that any library adding a `.item()` method to Array or the other indexables is going to be giving it compatible or identical semantics to what's outlined here; I can't imagine what else such a method name could possibly correspond to.
+나는 이전에 한 말을 철회할 준비가 되어있지만, 배열 또는 다른 색인 가능 항목에 `.item()` 메서드를 추가하는 모든 라이브러리가 여기에 설명된 것과 호환되거나 동일한 의미를 제공할 것이라고 생각합니다. 나는 그러한 메서드 이름이 무엇에 해당할 수 있는지 상상할 수 없습니다.
 
-There's good evidence that we're probably safe here, tho: none of MooTools, Prototype, or Ext add `.item()` to Array; those are generally the most dangerous libraries for this kind of addition (see: [smooshgate](https://developers.google.com/web/updates/2018/03/smooshgate)), so if we're safe there it's much more likely we'll be safe in general.
+우리가 여기서 안전하다는 좋은 증거가 있습니다. MooTools, Prototype 또는 Ext 중 어느 것도 배열에 `.item()`을 추가하지 않습니다. 이러한 라이브러리는 일반적으로 이러한 종류의 추가에 가장 위험한 라이브러리입니다(참조: [smooshgate](https://developers.google.com/web/updates/2018/03/smooshgate)). 일반적으로 안전할 가능성이 더 높습니다.
 
 ### 가능한 DOM 호환성 문제
 
-The .item() method defined by all of the interfaces [listed above](#convertable-interfaces) has a common structure:
+[위에 나열된](#변환-가능한-인터페이스) 모든 인터페이스에 의해 정의된 .item() 메서드는 공통 구조를 갖습니다.
 
 ```webidl
 	SomeType? item(unsigned long index);
 ```
 
-If you follow the definition chain in WebIDL, you end up with a conversion algorithm for `unsigned long` into internal numbers that _mostly_ matches what JS does for indexes in `.slice()`, with a few differences around the edges:
+만약 WebIDL에서 정의 체인을 따른다면, `unsigned long`을 내부 숫자로 변환하는 변환 알고리즘을 얻을 수 있는데, 이는 대부분 `.slice()`에서 색인에 대해 JS가 수행하는 것과 거의 일치하며, 일부 차이점이 있을 수 있습니다.
 
-- WebIDL treats Infinity and -Infinity as 0, while JS leaves them as is.
-- WebIDL modulos the value by 2^32 (using JS's "modulo" math op, so negatives become positive), while JS does not.
-- If the index is out of range, WebIDL returns `null`, while JS returns `undefined`.
+- WebIDL에서는 Infinity와 -Infinity를 0으로 처리하지만, JS는 그대로 유지합니다.
+- WebIDL은 값을 2^32로 나눈 나머지를 계산하지만(JS의 "modulo" 수학 연산을 사용하여 음수는 양수가 됩니다), JS는 이를 수행하지 않습니다.
+- 색인이 범위를 벗어나면, WebIDL은 `null`을 반환하고 JS는 `undefined`를 반환합니다.
 
-The first means that code that is accidentally passing infinities into `.item()` and relying on it returning the item at index 0 will break, as it will now get `undefined`. I find this very unlikely to be problematic.
+첫 번째는 `.item()`에 무한대 값을 뜻하지 않게 전달하고, 색인 0의 항목을 반환것에 의존하는 코드가 이제 `undefined`을 반환하므로 중단된다는 의미입니다. 이러한 상황이 문제가 될 가능성은 매우 낮다고 생각합니다
 
-The second means that code passing extremely large numbers that are _just a little bit_ larger than 2^32 (so the modulo brings them back into a reasonable index) and relying on that to return something from the list will break, as it will now get `undefined`. I also find this very unlikely to be problematic.
+두 번째는 매우 큰 숫자를 전달하는 코드는 2^32보다 **조금 더** 큰 숫자를 사용하여 (modulo 연산을 통해 합리적인 색인으로 변환) 목록에서 항목을 반환하는 것에 의존하는 경우, 이제 `undefined`를 반환하므로 중단된다는 의미입니다. 이러한 상황도 매우 문제가 될 가능성이 낮다고 생각합니다.
 
-The second also means that code relying on small negative numbers being modulo'd into the vicinity of 4 billion, and thus returning `null`, will break, as it will now return items from near the end of the list. I find this slightly likely, and believe we will need to do some instrumentation/testing to ensure it happens below our threshold for breakage. (There is a small chance that such code is _expecting_ to recieve a value from the end of the list and is currently broken, and will be fixed by this change.)
+두 번째는 또한 작은 음수에 의존하는 코드가 40억 근처로 modulo 연산되어 `null`을 반환하는 코드가 이제 목록의 끝 부분에서 항목을 반환하므로 중단된다는 의미입니다. 이러한 경우가 약간 발생할 가능성이 있으며, 오류가 발생하는 임계값 아래에서 발생하는지 확인하기 위해 일부 계측/테스트를 수행해야 할 것으로 예상됩니다. (이러한 코드가 목록의 끝에서 값을 받기를 **기대하고** 현재 오류가 있는 경우가 있을 수 있으며, 이 변경으로 인해 수정될 것입니다.)
 
-The third means that code which is testing for the presence of an item by _explicitly_ comparing the return value with `null` will break, as it will now receive `undefined` and think a value was returned. I also find this slightly likely. In my experience, however, most such code is written either as `== null` or simply uses the truthiness of the return value (since a valid index will always return an object, which is truthy); both of these kinds of tests will continue to work after the change.
+세 번째는 명시적으로 반환 값을 `null`과 비교하여 항목의 존재 여부를 테스트하는 코드는 이제 `undefined`를 받고 값이 반환되었다고 생각하므로 중단된다는 의미입니다. 이러한 경우가 약간 발생할 가능성이 있습니다. 그러나 제 경험상 대부분의 이러한 코드는 `== null`로 작성되거나 반환 값을 참 혹은 거짓 값으로 사용하는 경우가 많습니다 (유효한 색인은 항상 truthy인 객체를 반환하기 때문에). 이러한 종류의 테스트는 변경 후에도 계속 작동할 것입니다.
 
 ---
 
-We could potentially preview any of these changes before attempting to accept this proposal fully, so we know whether it's realistic to do such an upgrade, and thus whether the `.item()` name it a hard requirement or can be freely bikeshedded.
+우리는 본 제안서를 완전히 수락하기 전에 잠재적으로 이러한 변경 사항을 미리 볼 수 있으므로, 그러한 갱신을 수행하는 것이 현실적인지 여부와 `.item()`이 그것을 엄격한 요구 사항으로 지정하는지 또는 자유롭게 공유할 수 있는지 여부를 알 수 있습니다.
 
-In particular, testing negative indexes would be fairly simple, just requiring a change to `signed long` and an extra line in the algorithms of the methods.
+특히, 음수 색인을 테스트하는 것은 매우 간단하며 `signed long`을 변경하고 메서드 알고리즘에 여분의 줄을 추가하기만 하면 됩니다.
 
-Testing returning `undefined` is also plausible; tho still slightly awkward to _express_ in WebIDL (requiring the return type to be written as `any`), it's a tiny change to the algorithms of the methods.
+`undefined`를 반환하는 테스트도 그럴듯합니다. WebIDL로 표현하기에는 여전히 약간 어색하지만(반환 유형을 `any`로 작성해야 함) 메서드의 알고리즘에 약간의 변화가 있습니다.
+
+---
+
+[1]: #1
+
+#### 1 
+
+**음수 색인(negative indexing)**
