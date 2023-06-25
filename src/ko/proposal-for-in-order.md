@@ -9,7 +9,7 @@ ECMA-262는 `for (a in b) ...` 순서를 [거의 완전히 명시하지 않지�
 ## 배경
 for-in의 순서를 완전한 사양으로 합의하는데 사용한 역사적 노력들은 모두 실패로 돌아갔습니다. 그 이유 중 일부는 모든 엔진이 고유한 독특한 구현을 가지고 있으며, 이는 많은 작업을 해야 한다는 뜻이며 다시 검토하고 싶지 않은 부분이기 때문입니다.
 
-구체적인 제안 전의 배경과 테스트 케이스에 대한 내용은 [탐색](https://github.com/tc39/proposal-for-in-order/tree/master/exploration) 디렉토리를 참고해주세요.
+구체적인 제안 전의 배경과 테스트 케이스에 대한 내용은 [탐색](https://github.com/tc39/proposal-for-in-order/tree/master/exploration) 디렉토리를 참고해 주세요.
 
 ## 의미론적 상호운용성(interop semantics)의 보수적인 하한 추정치
 [상호운용성의 의미론적 목록](https://github.com/tc39/proposal-for-in-order/tree/master/exploration#interop-semantics)에서 이미 엔진들이 동의한 경우에 대한 보수적인 하한 추정치를 유도할 수 있습니다. 이는 가장 일반적인 경우를 포함한다고 믿습니다. 구체적으로는 다음과 같습니다.
