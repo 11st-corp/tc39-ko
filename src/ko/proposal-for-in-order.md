@@ -31,7 +31,7 @@ for-in의 순서를 완전한 사양으로 합의하는데 사용한 역사적 �
 - [`SerializeJSONObject`](https://tc39.es/ecma262/#sec-serializejsonobject)를 통한 [`JSON.stringify`](https://tc39.es/ecma262/#sec-json.stringify)
 
 [other-effects](https://github.com/tc39/proposal-for-in-order/tree/master/other-effects) 디렉터리에는 각각의 간단한 예제를 보여주는 테스트가 있습니다. 모든 주요 엔진은 이미 이러한 모든 케이스에 동의하고 있습니다.
-JSON.parse로 생성된 모든 객체가 interop 시멘틱 내에 있기 때문에, 이 제안 이후에 완전히 명시될 것입니다. 다른 API들은 모두 이형 인수를 전달할 수 있기 때문에 그렇지 않을 것입니다.
+JSON.parse로 생성된 모든 객체가 interop 시맨틱 내에 있기 때문에, 이 제안 이후에 완전히 명시될 것입니다. 다른 API들은 모두 이형 인수를 전달할 수 있기 때문에 그렇지 않을 것입니다.
 
 ### `Reflect.ownKeys`-orderd APIs
 
