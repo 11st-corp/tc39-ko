@@ -97,7 +97,7 @@ a == null ? undefined : a()  // throws a TypeError if `a` is neither null/undefi
 ```
 
 ### 단락 평가
-`?.`의 LHS에 대한 표현이 `null`/`undefined`로 평가되면 RHS는 평가되지 않습니다. 이 개념을 short-circuiting이라고 합니다.
+`?.`의 LHS에 대한 표현이 null/undefined로 평가되면 RHS는 평가되지 않습니다. 이 개념을 short-circuiting이라고 합니다.
 
 ```js
 a?.[++x]         // `x` is incremented if and only if `a` is not null/undefined
