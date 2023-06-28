@@ -104,8 +104,8 @@ a?.[++x]         // `x` is incremented if and only if `a` is not null/undefi
 a == null ? undefined : a[++x]
 ```
 
-### 긴 단축 평가
-실제로 단축 평가가 트리거되면 현재 속성 액세스, 메서드 또는 함수 호출뿐만 아니라 옵셔널 체이닝 연산자 바로 다음에 오는 속성 액세스, 메서드 또는 함수 호출의 전체 체인도 건너뜁니다.
+### 긴 단락 평가
+실제로 단락 평가가 트리거되면 현재 속성 액세스, 메서드 또는 함수 호출뿐만 아니라 옵셔널 체이닝 연산자 바로 다음에 오는 속성 액세스, 메서드 또는 함수 호출의 전체 체인도 건너뜁니다.
 
 ```js
 a?.b.c(++x).d  // if `a` is null/undefined, evaluates to undefined. Variable `x` is not incremented.
