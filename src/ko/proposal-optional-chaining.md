@@ -48,7 +48,7 @@ if (myForm.checkValidity?.() === false) { // 오래된 웹 브라우저에서는
 ## 선행 기술
 달리 언급하지 않는 한, 다음 언어에서 구문은 연산자 앞에 물음표로 구성됩니다.(`a?.b`, `a?.b()`, `a?[b]` 또는 `a?(b)` 에 해당하는 경우)
 
-다음 언어는 이 제안과 동일한 일반적인 의미론을 사용하여 연산자를 구현합니다( 1) `null` 기본값으로부터 보호하고, 2) 전체 체인에 대한 단락 적용 프로그램):
+다음 언어는 이 제안과 동일한 일반적인 의미론을 사용하여 연산자를 구현합니다( 1) null 기본값으로부터 보호하고, 2) 전체 체인에 대한 단락 적용 프로그램):
 - C#: [Null-conditional operator](https://msdn.microsoft.com/en-us/library/dn986595.aspx) — 읽기 액세스에서 Null 조건부 멤버 액세스 또는 인덱스입니다.
 - Swift: [Optional Chaining](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/optionalchaining/) — 읽기 및 쓰기 액세스 권한을 가진 옵셔널 속성, 메서드 또는 구독자 호출입니다.
 - CoffeeScript: [Existential operator](https://coffeescript.org/#existential-operator) — 속성 접근자, 함수 호출, 객체 구성(`new a?()`)에 대한 실존 연산자 변형입니다. 할당 및 삭제에도 적용됩니다.
