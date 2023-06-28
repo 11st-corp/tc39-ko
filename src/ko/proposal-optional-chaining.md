@@ -24,7 +24,7 @@ var fooValue = fooInput ? fooInput.value : undefined
 var street = user.address?.street
 var fooValue = myForm.querySelector('input[name=foo]')?.value
 ```
-누락된 사례에 대해 `undefined`가 아닌 다른 값이 필요한 경우 일반적으로 Nullish 병합 연산자를 사용하여 처리할 수 있습니다.
+누락된 사례에 대해 `undefined`가 아닌 다른 값이 필요한 경우 일반적으로 [Nullish 병합 연산자](https://github.com/tc39/proposal-nullish-coalescing)를 사용하여 처리할 수 있습니다.
 ```js
 // response.settings가 없거나 null이면 기본값으로 돌아갑니다.
 // (response.settings == null) 또는 response.settings.animationDuration이 누락된 경우
