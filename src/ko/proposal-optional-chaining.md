@@ -14,7 +14,7 @@
 ```js
 var street = user.address && user.address.street;
 ```
-또한, 많은 API는 객체 또는 `null`/`undefined`를 반환하며, `null`이 아닌 경우에만 결과에서 속성을 추출하려 할 수 있습니다.
+또한, 많은 API는 객체 또는 null/undefined를 반환하며, null이 아닌 경우에만 결과에서 속성을 추출하려 할 수 있습니다.
 ```js
 var fooInput = myForm.querySelector('input[name=foo]')
 var fooValue = fooInput ? fooInput.value : undefined
