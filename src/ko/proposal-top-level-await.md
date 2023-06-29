@@ -74,10 +74,10 @@ export { output };
 
 ```js
 // usage.mjs
-import promise, { output } from "./awaiting.mjs";
+import 프로미스, { output } from "./awaiting.mjs";
 export function outputPlusValue(value) { return output + value }
 
-promise.then(() => {
+프로미스.then(() => {
   console.log(outputPlusValue(100));
   setTimeout(() => console.log(outputPlusValue(100), 1000);
 });
@@ -108,9 +108,9 @@ export default (async () => {
 
 ```js
 // usage.mjs
-import promise from "./awaiting.mjs";
+import 프로미스 from "./awaiting.mjs";
 
-export default promise.then(({output}) => {
+export default 프로미스.then(({output}) => {
   function outputPlusValue(value) { return output + value }
 
   console.log(outputPlusValue(100));
@@ -124,7 +124,7 @@ export default promise.then(({output}) => {
 
 ```
 
-이 패턴이 유행했는지는 확실하지 않지만, 때때로 이 패턴은 이러한 종류의 문제에 직면한 사람들에게 [StackOverflow에서 권장](https://stackoverflow.com/questions/42958334/how-can-i-export-promise-result/42958644#42958644)됩니다.
+이 패턴이 유행했는지는 확실하지 않지만, 때때로 이 패턴은 이러한 종류의 문제에 직면한 사람들에게 [StackOverflow에서 권장](https://stackoverflow.com/questions/42958334/how-can-i-export-프로미스-result/42958644#42958644)됩니다.
 
 그러나 이 패턴은 관련 소스를 보다 동적인 패턴으로 광범위하게 재구성해야 하고, 동적으로 사용 가능한 import를 사용하기 위해 모듈 본문의 대부분을 `.then()` 콜백 내부에 배치해야 하는 바람직하지 않은 효과가 있습니다. 이는 ES2015 모듈과 비교하여 정적 분석 가능성, 테스트 가능성, 인체 공학 등의 측면에서 상당한 후퇴를 나타냅니다. 그리고 `await`해야 하는 깊은 종속성에 도달하면, 이 패턴을 사용하도록 모든 종속 모듈을 재구성해야 합니다.
 
@@ -201,11 +201,11 @@ console.log(a, b, c);
 이것은 대략 다음과 같습니다.
 
 ```js
-import { promise as aPromise, a } from "./a.mjs";
-import { promise as bPromise, b } from "./b.mjs";
-import { promise as cPromise, c } from "./c.mjs";
+import { 프로미스 as a프로미스, a } from "./a.mjs";
+import { 프로미스 as b프로미스, b } from "./b.mjs";
+import { 프로미스 as c프로미스, c } from "./c.mjs";
 
-export const promise = Promise.all([aPromise, bPromise, cPromise]).then(() => {
+export const 프로미스 = 프로미스.all([a프로미스, b프로미스, c프로미스]).then(() => {
   console.log(a, b, c);
 });
 ```
@@ -224,7 +224,7 @@ export const promise = Promise.all([aPromise, bPromise, cPromise]).then(() => {
 
 최상위 `await`가 개발자에게 코드를 기다리게 하는 새로운 도구를 제공한다는 것은 사실입니다. 우리의 희망은 적절한 개발자 교육을 통해 최상위 `await`의 의미를 잘 이해하여, 사람들이 import되는 모듈을 블록시킬 때 이를 사용하는 방법을 알 수 있도록 하는 것입니다.
 
-과거에 이러한 접근 방식이 잘 동작한 사례들을 볼 수 있었습니다. 예를 들어, async/await를 사용하여 병렬로 처리될 수 있는 두 가지 작업을 직렬화하는 코드를 쉽게 작성할 수 있지만, 의도적인 개발자 교육 노력으로 이러한 위험을 방지하기 위해 `Promise.all` 사용이 대중화되었습니다.
+과거에 이러한 접근 방식이 잘 동작한 사례들을 볼 수 있었습니다. 예를 들어, async/await를 사용하여 병렬로 처리될 수 있는 두 가지 작업을 직렬화하는 코드를 쉽게 작성할 수 있지만, 의도적인 개발자 교육 노력으로 이러한 위험을 방지하기 위해 `프로미스.all` 사용이 대중화되었습니다.
 
 **최상위 `await`는 개발자가 `import()`를 불필요하게 사용하도록 장려하여 최적화 가능성이 떨어집니까?**
 
@@ -243,7 +243,7 @@ export const promise = Promise.all([aPromise, bPromise, cPromise]).then(() => {
 ```js
 // x.mjs
 console.log("X1");
-await new Promise((r) => setTimeout(r, 1000));
+await new 프로미스((r) => setTimeout(r, 1000));
 console.log("X2");
 ```
 
@@ -270,13 +270,13 @@ import "./y.mjs";
 
 현재(최상위 `await`가 없는 세계에서) 폴리필은 동기식입니다. 따라서 전역 객체를 수정하는 polyfill을 가져온 다음 polyfill의 영향을 받는 모듈을 가져오는 관용구는 최상위 `await`가 추가된 경우에도 계속 작동합니다. 그러나 폴리필에 최상위 `await`가 포함된 경우 안정적으로 적용하려면 폴리필에 의존하는 모듈에서 가져와야 합니다.
 
-**가져온 모듈 중 최상위 `await`가 없는 경우에도 Promise.all이 발생합니까?**
+**가져온 모듈 중 최상위 `await`가 없는 경우에도 프로미스.all이 발생합니까?**
 
-모듈의 실행이 결정적으로 동기화된 경우(즉, 모듈과 해당 종속성이 각각 최상위 `await`를 포함하지 않는 경우) 해당 모듈에 대한 `Promise.all` 항목이 없습니다. 이 경우 동기식으로 실행됩니다.
+모듈의 실행이 결정적으로 동기화된 경우(즉, 모듈과 해당 종속성이 각각 최상위 `await`를 포함하지 않는 경우) 해당 모듈에 대한 `프로미스.all` 항목이 없습니다. 이 경우 동기식으로 실행됩니다.
 
 이러한 의미 체계는 ES 모듈의 현재 동작을 유지합니다. 여기서 최상위 `await`가 사용되지 않을 때 평가 단계는 완전히 동기식입니다. 의미 체계는 다른 곳에서 프로미스를 사용하는 것과 약간 대조됩니다. 구체적인 예와 추가 논의는 [이슈 #43](https://github.com/tc39/proposal-top-level-await/issues/43) 및 [이슈 #47](https://github.com/tc39/proposal-top-level-await/issues/47)을 참조하십시오.
 
-**종속성은 정확히 어떻게 대기합니까? `Promise.all`을 실제로 사용합니까?**
+**종속성은 정확히 어떻게 대기합니까? `프로미스.all`을 실제로 사용합니까?**
 
 최상위 `await`가 없는 모듈의 의미 체계는 동기식입니다. 즉, 종속 항목이 실행된 직후 모듈이 실행되면서 전체 트리가 사후 순서로 실행됩니다. 동일한 의미 체계가 최상위 `await`가 있는 모듈에 적용됩니다. 최상위 `await`를 포함하는 모듈이 실행되면 종속 모듈이 모두 실행된 종속 모듈의 동기 실행을 트리거합니다. 모듈에 최상위 `await`가 포함되어 있으면 `await`에 동적으로 도달하지 않더라도 전체 모듈이 마치 큰 비동기 함수인 것처럼 "비동기"로 처리됩니다. 따라서 완료되었을 때 실행되는 모든 것은 프로미스 반응에 있습니다. 그러나 거기에서 종속된 여러 모듈이 있고 여기에 최상위 `await`가 포함되어 있지 않으면 서로 프로미스 작업 없이 동기적으로 실행됩니다.
 
@@ -351,14 +351,14 @@ await import("./a.mjs");
 
 대안: 부분적으로 채워진 모듈 레코드 반환
 
-b.mjs에서는 a.mjs가 아직 완료되지 않았더라도 교착 상태를 피하기 위해 Promise를 즉시 해결합니다.
+b.mjs에서는 a.mjs가 아직 완료되지 않았더라도 교착 상태를 피하기 위해 프로미스를 즉시 해결합니다.
 
 대안: 진행 중인 모듈 사용 시 예외 발생
 
-b.mjs에서 모듈이 아직 완료되지 않았기 때문에 a.mjs를 가져올 때 Promise를 거부하여 교착 상태를 방지합니다.
+b.mjs에서 모듈이 아직 완료되지 않았기 때문에 a.mjs를 가져올 때 프로미스를 거부하여 교착 상태를 방지합니다.
 
 사례 연구: 모듈 import() 경쟁
-여러 코드 조각이 동일한 모듈을 동적으로 가져오기를 원할 수 있다는 점을 고려할 때 이러한 전략은 모두 실패합니다. 이러한 다중 가져오기는 일반적으로 걱정할 만한 경쟁이나 교착 상태가 아닙니다. 그러나 위의 메커니즘 중 어느 것도 상황을 잘 처리하지 못합니다. 하나는 Promise를 거부하고 다른 하나는 가져온 모듈이 초기화될 때까지 기다리지 못합니다.
+여러 코드 조각이 동일한 모듈을 동적으로 가져오기를 원할 수 있다는 점을 고려할 때 이러한 전략은 모두 실패합니다. 이러한 다중 가져오기는 일반적으로 걱정할 만한 경쟁이나 교착 상태가 아닙니다. 그러나 위의 메커니즘 중 어느 것도 상황을 잘 처리하지 못합니다. 하나는 프로미스를 거부하고 다른 하나는 가져온 모듈이 초기화될 때까지 기다리지 못합니다.
 
 결론: 교착 상태 회피를 위한 실행 가능한 전략 없음
 
@@ -368,12 +368,14 @@ b.mjs에서 모듈이 아직 완료되지 않았기 때문에 a.mjs를 가져올
 
 **이 제안이 없으면 모듈 그래프 실행은 동기식입니다. 이 제안은 그러한 로딩이 동기식이라는 개발자의 기대치를 유지합니까?**
 
-모듈에 최상위 `await`가 포함되어 있으면(해당 await에 동적으로 도달하지 않더라도) 이는 동기적이지 않으며 최소한 Promise 작업 대기열을 통해 한 번 이동합니다. 그러나 최상위 `await`를 사용하지 않는 모듈 하위 그래프는 이 제안이 없는 것과 정확히 동일한 방식으로 동기적으로 계속 실행됩니다. 그리고 최상위 `await`를 사용하지 않는 여러 모듈이 이를 사용하는 모듈에 의존하는 경우 비동기 모듈이 준비되면 해당 모듈이 모두 실행되며 다른 작업(Promise 작업 대기열/마이크로태스크 대기열, 호스트의 이벤트 루프 등). 사용된 로직에 대한 자세한 내용은 [#74](https://github.com/tc39/proposal-top-level-await/pull/74)를 참조하십시오.
+모듈에 최상위 `await`가 포함되어 있으면(해당 await에 동적으로 도달하지 않더라도) 이는 동기적이지 않으며 최소한 프로미스 작업 대기열을 통해 한 번 이동합니다. 그러나 최상위 `await`를 사용하지 않는 모듈 하위 그래프는 이 제안이 없는 것과 정확히 동일한 방식으로 동기적으로 계속 실행됩니다. 그리고 최상위 `await`를 사용하지 않는 여러 모듈이 이를 사용하는 모듈에 의존하는 경우 비동기 모듈이 준비되면 해당 모듈이 모두 실행되며 다른 작업(프로미스 작업 대기열/마이크로태스크 대기열, 호스트의 이벤트 루프 등). 사용된 로직에 대한 자세한 내용은 [#74](https://github.com/tc39/proposal-top-level-await/pull/74)를 참조하십시오.
 
 **모듈 로드에 모듈 사이의 마이크로태스크 체크포인트가 포함되어야 합니까, 아니면 모듈 로드 후 이벤트 루프에 양보해야 합니까?**
+
 아마도요! 이러한 모듈 로딩 질문은 로딩 성능에 대한 흥미로운 연구 영역의 일부일 뿐만 아니라 마이크로태스크 체크포인트를 둘러싼 불변성에 대한 흥미로운 토론입니다. 이 제안은 이러한 질문에 대한 의견을 취하지 않고 별도의 제안에 대한 비동기 동작을 남겨 둡니다. 호스트 환경은 이러한 작업을 수행하는 방식으로 모듈을 래핑할 수 있으며 최상위 `await` 사양 기계를 사용하여 작업을 조정할 수 있습니다. TC39 또는 호스트 환경의 향후 제안은 추가적인 마이크로태스크 체크포인트를 추가할 수 있습니다. 관련된 논의는 [whatwg/html#4400](https://github.com/whatwg/html/issues/4400)을 참조하십시오.
 
 **최상위 `await`가 웹 페이지에서 작동합니까?**
+
 예. HTML 사양으로의 통합에 대한 자세한 내용은 [whatwg/html#4352](https://github.com/whatwg/html/pull/4352)에서 제안됩니다.
 
 ## 역사
