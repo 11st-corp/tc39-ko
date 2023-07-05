@@ -58,7 +58,7 @@ Proposals 번역(Proposal-ko)은 tc39의 [Finished Proposals](https://github.com
 |46|[Error Cause]("#") | [Error Cause](https://github.com/tc39/proposal-error-cause) | 김다미 | 23.07.07
 |47|[Array find from last]("#") | [Array find from last](https://github.com/tc39/proposal-array-find-from-last) | 김정호 | 23.07.07
 |48|[Hashbang Grammar]("#") | [Hashbang Grammar](https://github.com/tc39/proposal-hashbang) | 박찬우 | 23.07.07
-|49|[Symbols as WeakMap keys]("https://github.com/tc39/proposal-symbols-as-weakmap-keys") | [Symbols as WeakMap keys](https://github.com/tc39/proposal-symbols-as-weakmap-keys) | 이호찬 | 23.07.07
+|49|[Symbols as WeakMap keys]("#") | [Symbols as WeakMap keys](https://github.com/tc39/proposal-symbols-as-weakmap-keys) | 이호찬 | 23.07.07
 |50|[Change Array by Copy]("#") | [Change Array by Copy](https://github.com/tc39/proposal-change-array-by-copy) | 권혁주 | 23.07.14
 |51|[Well-Formed Unicode Strings]("#") | [Well-Formed Unicode Strings](https://github.com/tc39/proposal-is-usv-string) | 김다미 | 23.07.14
 |52|[`Atomics.waitAsync`]("#") | [Atomics.waitAsync](https://github.com/tc39/proposal-atomics-wait-async) | 김정호 | 23.07.14
