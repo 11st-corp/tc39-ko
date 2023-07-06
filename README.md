@@ -53,8 +53,16 @@ Proposals 번역(Proposal-ko)은 tc39의 [Finished Proposals](https://github.com
 |41|_[Top-level `await`]("#")_ | [Top-level `await`](https://github.com/tc39/proposal-top-level-await) | 김다미 | _
 |42|_[Ergonomic brand checks for Private Fields]("#")_ | [Ergonomic brand checks for Private Fields](https://github.com/tc39/proposal-private-fields-in-in) | 김정호 | _
 |43|_[`.at()`]("#")_ | [`.at()`](https://github.com/tc39/proposal-relative-indexing-method) | 이호찬 | _
-|43|_[Accessible `Object.prototype.hasOwnProperty`]("#")_ | [Accessible `Object.prototype.hasOwnProperty`](https://github.com/tc39/proposal-accessible-object-hasownproperty) | 박찬우 | _
-
+|44|_[Accessible `Object.prototype.hasOwnProperty`]("#")_ | [Accessible `Object.prototype.hasOwnProperty`](https://github.com/tc39/proposal-accessible-object-hasownproperty) | 박찬우 | _
+|45|[Class Static Block]("#") | [Class Static Block](https://github.com/tc39/proposal-class-static-block) | 권혁주 | 23.07.07
+|46|[Error Cause]("#") | [Error Cause](https://github.com/tc39/proposal-error-cause) | 김다미 | 23.07.07
+|47|[Array find from last]("#") | [Array find from last](https://github.com/tc39/proposal-array-find-from-last) | 김정호 | 23.07.07
+|48|[Hashbang Grammar]("#") | [Hashbang Grammar](https://github.com/tc39/proposal-hashbang) | 박찬우 | 23.07.07
+|49|[Symbols as WeakMap keys]("#") | [Symbols as WeakMap keys](https://github.com/tc39/proposal-symbols-as-weakmap-keys) | 이호찬 | 23.07.07
+|50|[Change Array by Copy]("#") | [Change Array by Copy](https://github.com/tc39/proposal-change-array-by-copy) | 권혁주 | 23.07.14
+|51|[Well-Formed Unicode Strings]("#") | [Well-Formed Unicode Strings](https://github.com/tc39/proposal-is-usv-string) | 김다미 | 23.07.14
+|52|[`Atomics.waitAsync`]("#") | [Atomics.waitAsync](https://github.com/tc39/proposal-atomics-wait-async) | 김정호 | 23.07.14
+|53|[RegExp v flag with set notation + properties of strings]("#") | [RegExp v flag with set notation + properties of strings](https://github.com/tc39/proposal-regexp-v-flag) | 박찬우 | 23.07.14
 
 
 ## ⚡️Members
