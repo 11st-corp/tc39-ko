@@ -20,7 +20,7 @@
 
 본 제안서는 고유 심볼을 키로 사용할 수 있도록 WeakMap API를 확장합니다.
 
-현재 WeakMaps는 키로 객체만 허용하도록 제한되어 있으며, 목표는 궁극적으로 GC 될 수 있는 고유한 값을 갖는 것이므로 이것은 WeakMaps의 제한 사항입니다.
+현재 WeakMap는 키로 객체만 허용하도록 제한되어 있으며, 목표는 궁극적으로 GC 될 수 있는 고유한 값을 갖는 것이므로 이것은 WeakMap의 제한 사항입니다.
 
 Symbol은 ECMAScript에서 고유한 값을 허용하는 유일한 원시 유형입니다. `Symbol( [ description] )` 표현식을 호출하여 생성된 심볼 값은 원본 생성에 대한 접근으로만 식별할 수 있습니다. 동일한 표현식을 사용하여 같은 설명 값으로 재현하더라도 이전 생성의 원래 값은 복원되지 않습니다. 이것이 우리가 심볼 값들을 고유하다고 부르는 이유입니다.
 
@@ -38,7 +38,7 @@ WeakMap key로서의 심볼은 [이전 논의](https://github.com/tc39/ecma262/i
 
 ### 간편한 키 생성 및 공유
 
-객체를 키로 사용하기 위해 새로운 객체를 생성하는 대신, 심볼은 WeakMap의 사용 편의성과 키 및 짝지어진 항목의 적절한 역할에 대해 더욱 명확성을 제공할 수 있습니다.
+객체를 키로 사용하기 위해 새로운 객체를 생성하는 대신, 심볼은 WeakMap의 사용 편의성과 키 및 매핑 항목의 적절한 역할에 대해 더욱 명확성을 제공할 수 있습니다.
 
 ```javascript
 const weak = new WeakMap();
@@ -129,8 +129,6 @@ refs.deref(server.handler)({ /* ... */ });
 
 잘 알려진 심볼을 허용하는 것은 그리 나쁘게 보이지 않습니다. 왜냐하면 그들은 영역의 수명 동안 유지되는 객체와 유사하기 때문입니다. JS가 실행되는 한 계속 유지되는 (예: 웹 상에서 Worker의 영역) 컨텍스트에서 `Symbol.iterator`와 같은 것들은 `Object.prototype` 및 `Array.prototype`과 같은 원시적인 객체와 유사합니다. 이러한 객체들이 계속 유지되는 것은 WeakMap 키로 사용할 수 없음을 의미하지는 않습니다.
 
-While 'registered' symbols can be detected using `Symbol.keyFor`, there is currently no built in predicate to test if a symbol is 'well-known' or not. If 'well-known' symbols were not allowed as keys in a WeakMap code would need to ensure it handles this potential abrupt completion.
-
 `Symbol.keyFor`를 사용하여 '등록된' 심볼을 감지할 수 있지만, 현재는 심볼이 '잘 알려진' 심볼인지 아닌지를 테스트하기 위한 내장된 속성이 존재하지 않습니다. '잘 알려진' 심볼을 WeakMap의 키로 허용하지 않는다면, 코드는 이러한 예상치 못한 완료를 처리할 수 있도록 보장해야 합니다.
 
 ## WeakRefs 및 FinalizationRegistry의 심볼 지원
@@ -149,7 +147,7 @@ While 'registered' symbols can be detected using `Symbol.keyFor`, there is curre
 
 #### 1
 
-ShadowRealms(그림자 영역)은 객체 지향 프로그래밍에서 사용되는 용어로, 객체의 라이프사이클 동안 보호되는 동안 일시적으로 다른 객체를 그림자로 만들어 일부 동작을 가로채는 기능을 가리킵니다. 그림자 객체는 원본 객체와 동일한 인터페이스를 제공하면서도, 특정 동작이 수정되거나 가로채일 수 있습니다. 이는 객체의 동작을 감시하거나 확장하기 위해 사용될 수 있습니다.
+ShadowRealms(그림자 영역)은 객체 지향 프로그래밍에서 사용되는 용어로, 객체의 라이프사이클 동안 보호되는 동안 일시적으로 다른 객체를 그림자로 만들어 일부 동작을 가로채는 기능을 가리킵니다. 그림자 객체는 원본 객체와 동일한 인터페이스를 제공하면서도, 특정 동작이 수정되거나 가로채일 수 있습니다. 이는 객체의 동작을 감시하거나 확장하기 위해 사용될 수 있습니다. 본 문서에서는 첨부된 제안서의 API의 의미로 사용되었습니다.
 
 #### 2
 
