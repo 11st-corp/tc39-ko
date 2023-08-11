@@ -191,7 +191,7 @@ long bytes = 0b11010010_01101001_10010100_10010010;
 ```
 
 > 처음 두 예제는 사실 어떤 환경에서는 정확하지 않을 수 있습니다.
-장단점:
+장단점은 다음과 같습니다.
 
 ```java
 float pi1 = 3_.1415F;      // Invalid; cannot put underscores adjacent to a decimal point
