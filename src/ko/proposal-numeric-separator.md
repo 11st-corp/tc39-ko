@@ -239,7 +239,7 @@ let m = 36_000_000 // Underscores (_) are allowed between digits for readability
 1_234
 ```
 
-* [Rust](https://doc.rust-lang.org/reference.html#number-literals): multiple, 아무대나 가능.
+* [Rust](https://doc.rust-lang.org/reference.html#number-literals): multiple, 아무데나 가능.
 
 ```rust
 0b1111_1111_1001_0000_i32;         // type i32
