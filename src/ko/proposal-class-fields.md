@@ -152,7 +152,7 @@ class X {
 
 ### 프라이빗을 접근하기 위한 백도어는 존재하지 않습니다.
 
-프라이빗 필드는 매우 강력한 캡슐화 제한을 제공합니다: getter를 제공하는 겻과 마찬가지로 코드가 노출되는 것과는 달리, 클래스의 외부에서는 프라이빗 필드에 접근하는 것이 불가능합니다. 이는 다양한 종류의 reflection과 metaprogramming을 지원하는 JavaScript의 속성과는 다르지만, 오히려 내부 구현에 대한 접근을 제공하지 않는 클로저나 `WeakMap`과는 매커니즘이 유사합니다. 이러한 결정에 대한 더 많은 정보는 [FAQ 항목](https://github.com/tc39/proposal-class-fields/blob/master/PRIVATE_SYNTAX_FAQ.md#why-doesnt-this-proposal-allow-some-mechanism-for-reflecting-on--accessing-private-fields-from-outside-the-class-which-declares-them-eg-for-testing-dont-other-languages-normally-allow-that) 을 참고하세요. 
+프라이빗 필드는 매우 강력한 캡슐화 제한을 제공합니다. getter를 제공하는 겻과 마찬가지로 코드가 노출되는 것과는 달리, 클래스의 외부에서는 프라이빗 필드에 접근하는 것이 불가능합니다. 이는 다양한 종류의 reflection과 metaprogramming을 지원하는 JavaScript의 속성과는 다르지만, 오히려 내부 구현에 대한 접근을 제공하지 않는 클로저나 `WeakMap`과는 매커니즘이 유사합니다. 이러한 결정에 대한 더 많은 정보는 [FAQ 항목](https://github.com/tc39/proposal-class-fields/blob/master/PRIVATE_SYNTAX_FAQ.md#why-doesnt-this-proposal-allow-some-mechanism-for-reflecting-on--accessing-private-fields-from-outside-the-class-which-declares-them-eg-for-testing-dont-other-languages-normally-allow-that) 을 참고하세요. 
 
 접근을 편리하게 만드는 마이그레이션
 - 구현체의 개발자 도구는 프라이빗 필드에 대한 접근을 제공할 수도 있습니다.([V8 issue](https://bugs.chromium.org/p/v8/issues/detail?id=8337))
