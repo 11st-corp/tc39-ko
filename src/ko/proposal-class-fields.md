@@ -178,7 +178,7 @@ class X {
 
 ### TC39 합의
 
-이 제안서는 2017년 7월에 [단계 3](https://tc39.github.io/process-document/) 에 도달하였습니다. 이 당시에 아래와 같은 다양한 대안에 대한 긴 논의와 광범위한 의견이 존재하였습니다.
+이 제안서는 2017년 7월에 [단계 3](https://tc39.github.io/process-document/)에 도달하였습니다. 이 당시에 아래와 같은 다양한 대안에 대한 긴 논의와 광범위한 의견이 존재하였습니다.
 - [JS Classes 1.1](https://github.com/zenparsing/js-classes-1.1)
 - [Reconsideration of "static private"](https://github.com/tc39/proposal-static-class-features)
 - [Additional use of the `private` keyword](https://gist.github.com/rauschma/a4729faa65b30a6fda46a5799016458a)
