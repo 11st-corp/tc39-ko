@@ -189,7 +189,7 @@ class X {
 ### 개발 역사
 
 이 문서는 [Orthogonal Classes](https://github.com/erights/Orthogonal-Classes) 와 [Class Evaluation Order](https://onedrive.live.com/view.aspx?resid=A7BBCE1FC8EE16DB!442046&app=PowerPoint&authkey=!AEeXmhZASk50KjA) 에서 일찍이 논의되었던 [퍼블릭 필드](https://tc39.github.io/proposal-class-public-fields/) 와 [프라이빗 필드](https://github.com/tc39/proposal-private-fields) 에 대한 결합된 버전을 제안하고 있습니다.
-프라이빗 메서드와 데토레이터에 대한 상위 호환성에 대하여 작성되었고, 이 통합은 [unified class features proposal](https://github.com/littledan/proposal-decorators) 에 작성되었습니다. 메서드와 접근자에 대해서는 [a follow-on proposal](https://github.com/littledan/proposal-private-methods/) 에 정의되어 있습니다.
+프라이빗 메서드와 데코레이터에 대한 상위 호환성에 대하여 작성되었고, 이 통합은 [unified class features proposal](https://github.com/littledan/proposal-decorators) 에 작성되었습니다. 메서드와 접근자에 대해서는 [a follow-on proposal](https://github.com/littledan/proposal-private-methods/) 에 정의되어 있습니다.
 
 이 제안서는 [TC39 회의](https://github.com/tc39/ecma262/blob/master/CONTRIBUTING.md)의 발표와 논의에서 뿐만 아니라 GitHub 저장소에서도 개발되었습니다. 과거의 발표나 논의는 아래와 같습니다.
 
