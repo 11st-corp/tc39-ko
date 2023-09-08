@@ -146,7 +146,7 @@ class X {
 }
 ```
 
-이 문법은 다른 프로그래밍 언어와는 조금 다름에도 불구하고 간결하면서도 직관적입니다. 이러한 문법으로 결정하기 위한 제약조건과 고려된 대안들에 대한 논의는 [프라이빗 문법 FAQ](https://github.com/tc39/proposal-class-fields/blob/master/PRIVATE_SYNTAX_FAQ.md) 를 확인하세요. 
+이 문법은 다른 프로그래밍 언어와는 조금 다름에도 불구하고 간결하면서도 직관적입니다. 이러한 문법으로 결정하기 위한 제약 조건과 고려된 대안들에 대한 논의는 [프라이빗 문법 FAQ](https://github.com/tc39/proposal-class-fields/blob/master/PRIVATE_SYNTAX_FAQ.md) 를 확인하세요. 
 
 프라이빗 내장 속성명은 존재하지 않습니다: `#foo`는 프라이빗 구분자이지만, `#[foo]`는 구문 오류입니다.
 
