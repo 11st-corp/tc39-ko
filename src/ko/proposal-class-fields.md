@@ -227,7 +227,7 @@ class X {
 - [QuickJS](https://www.freelists.org/post/quickjs-devel/New-release,82)
 - [TypeScript 3.8](https://devblogs.microsoft.com/typescript/announcing-typescript-3-8/#ecmascript-private-fields)
 
-진행중인 구현:
+진행중인 구현은 다음과 같습니다.
 - Firefox/SpiderMonkey: [Private instance fields](https://bugzilla.mozilla.org/show_bug.cgi?id=1562054)
 - [Additional tooling support](https://github.com/tc39/proposal-class-fields/issues/57)
 
