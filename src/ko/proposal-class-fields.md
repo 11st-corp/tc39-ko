@@ -172,7 +172,7 @@ class X {
 
 ## 명세서
 
-자세한 사항은 [draft 명세서](https://tc39.github.io/proposal-class-fields/) 를 참고하세요.
+자세한 사항은 [draft 명세서](https://tc39.github.io/proposal-class-fields/)를 참고하세요.
 
 ## 상태
 
