@@ -113,7 +113,7 @@ class B extends A {
 
 퍼블릭 필드를 `Object.defineProperty` 문법을 사용하기로한 결정은 TC39의 광범위한 논의와 개발자 커뮤니티에서의 상담을 기반하여 이루어졌습니다. TC39는 `Object.defineProperty`으로 강하게 의결되었으나, 안타깝게도 [커뮤니티는 분열되었습니다](https://github.com/tc39/proposal-class-fields/issues/151#issuecomment-431597270). 
 
-마이그레이션을 위하여 [decorators 제안서](https://github.com/tc39/proposal-decorators/) 는 `[[Set]]` 문법을 사용한 퍼블릭 필드 선언을 위한 decorator 작성법을 제공합니다. 표존에 대하여 동의하지 않더라도 다른 방식은 사용가능합니다. (이 것이 TC39가 채택한 정의와 무관하게 더 적합할 수 있습니다.)
+마이그레이션을 위하여 [decorators 제안서](https://github.com/tc39/proposal-decorators/)는 `[[Set]]` 문법을 사용하여 퍼블릭 필드 선언을 하기 위한 decorator 작성법을 제공합니다. 표준에 대하여 동의하지 않더라도 다른 방식은 사용 가능합니다. (이것이 TC39가 채택한 정의와 무관하게 더 적합할 수 있습니다.)
 
 퍼블릭 필드는 Chrome 72에서 `[[Define]]` 문법을 통해 [제공됩니다](https://www.chromestatus.com/feature/6001727933251584). 그리고 이 문법에 대한 결정은 재검토되지 않을 것 같습니다.
 
