@@ -209,7 +209,7 @@ class X {
 
 ### 구현
 
-아래의 구현을 통하여 클래스 필드의 제안서를 경험할 수 있습니다:
+아래의 구현을 통하여 클래스 필드의 제안서를 경험할 수 있습니다.
 
 - Babel [7.0+](https://babeljs.io/blog/2018/08/27/7.0.0#tc39-proposals-https-githubcom-tc39-proposals-support)
 - [Node 12](https://nodejs.org/en/blog/release/v12.0.0/)
